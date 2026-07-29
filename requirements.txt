@@ -1,0 +1,44 @@
+# ---------------------------------------------------------------------------
+# HousingIQ — requirements.txt
+# Grouped per TRD (02-TRD.md) §1 Tech Stack. Keep pins reasonably current;
+# bump deliberately, not via a blanket `pip install --upgrade`.
+# ---------------------------------------------------------------------------
+
+# --- Data pipeline / ML training -------------------------------------------
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+xgboost==2.1.0
+lightgbm==4.5.0
+shap==0.46.0
+matplotlib==3.9.1
+seaborn==0.13.2
+ydata-profiling==4.9.0
+
+# --- Model serving (FastAPI) -------------------------------------------------
+fastapi==0.111.1
+uvicorn[standard]==0.30.3
+pydantic==2.8.2
+python-multipart==0.0.9      # form/file upload parsing, if any endpoint needs it
+
+# --- Web application (Flask) -------------------------------------------------
+flask==3.0.3
+jinja2==3.1.4                # pinned explicitly even though Flask depends on it
+werkzeug==3.0.3
+requests==2.32.3             # Flask -> FastAPI internal HTTP calls
+
+# --- Persistence -------------------------------------------------------------
+# SQLite ships with Python's standard library (sqlite3) — no package needed.
+psycopg2-binary==2.9.9        # Postgres driver for the prod-ready path
+pyarrow==17.0.0                # Parquet read/write (clean_listings.parquet, caches)
+
+# --- Model artifacts ----------------------------------------------------------
+joblib==1.4.2
+
+# --- Testing -------------------------------------------------------------------
+pytest==8.3.2
+httpx==0.27.0                  # FastAPI TestClient / async client for API tests
+
+# --- Dev tooling (optional but recommended) -----------------------------------
+python-dotenv==1.0.1            # load env vars (DB URL, model version, API base URL) from .env
+ruff==0.5.6                       # linter/formatter, used by /lint-check
