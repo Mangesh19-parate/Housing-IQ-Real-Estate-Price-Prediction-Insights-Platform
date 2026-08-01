@@ -20,7 +20,10 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from scripts import ingest_raw  # noqa: E402  (path-adjusted import)
+from scripts import (  # noqa: E402,F401  (parse_check is a placeholder; Step 04 wires the real run)
+    ingest_raw,
+    parse_check,
+)
 
 
 def main() -> None:
