@@ -55,6 +55,17 @@ docs.zip
 data/processed/clean_listings.parquet
 data/processed/analytics_cache/
 
+# Pipeline-generated inventory + schema map + snapshot (regenerable from raw)
+data/processed/raw_inventory.json
+data/processed/facet_inventory.json
+data/processed/facet_join_coverage.csv
+data/processed/raw_schema_map.json
+data/processed/raw_snapshot_manifest.json
+
+# Pipeline run-snapshot metadata (regenerable from raw; the .gitkeep keeps the dir tracked)
+data/processed/_meta/*.json
+!data/processed/_meta/.gitkeep
+
 # Application SQLite DB (created at runtime by init_db())
 data/app.db
 data/app.db-journal
