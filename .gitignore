@@ -54,3 +54,7 @@ docs.zip
 # Generated data artifacts (rebuilt by pipeline)
 data/processed/clean_listings.parquet
 data/processed/analytics_cache/
+
+# Application SQLite DB (created at runtime by init_db())
+data/app.db
+data/app.db-journal

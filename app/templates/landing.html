@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}HousingIQ — Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>HousingIQ</h1>
+  <p class="lede">Price prediction, affordability tiers, and market insights for 4 Indian cities.</p>
+</section>
+
+<section class="city-filter" aria-label="City quick-filter">
+  <h2 class="section-title">Pick a city</h2>
+  <div class="city-buttons">
+    {% for city in cities %}
+      <button type="button" class="city-button" data-city="{{ city }}">{{ city }}</button>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="modules" aria-label="Modules">
+  <h2 class="section-title">Modules</h2>
+  <div class="module-grid">
+    {% for endpoint, label in modules %}
+      <article class="module-card" data-endpoint="{{ endpoint }}">
+        <span class="module-card__title">{{ label }}</span>
+        <small class="module-card__hint">coming soon</small>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

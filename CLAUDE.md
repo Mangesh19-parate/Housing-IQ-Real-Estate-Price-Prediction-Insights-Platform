@@ -192,7 +192,7 @@ pytest -s
 
 | Route | Status |
 |---|---|
-| `GET /` | Stub — landing page, city/module selector |
+| `GET /` | Implemented (Step 01) — landing page with city quick-filter and module cards |
 | `GET /predict` | Stub — Price Prediction form |
 | `POST /predict` (Flask → calls FastAPI `POST /predict`) | Stub |
 | `GET /classify` | Stub — Classification form (Affordability & Investment-Tier Filter) |
@@ -206,7 +206,7 @@ pytest -s
 | `POST /classify` (FastAPI) | Stub |
 | `POST /recommend` (FastAPI) | Stub |
 | `GET /insights` (FastAPI) | Stub |
-| `GET /health` (FastAPI) | Stub — liveness/readiness |
+| `GET /health` (FastAPI) | Implemented (Step 01) — returns `{"status": "ok"}`; no DB ping, no model load |
 
 Update this table as each spec in `.claude/specs/` is implemented — it should
 always reflect what's actually true in the code, not the plan.
