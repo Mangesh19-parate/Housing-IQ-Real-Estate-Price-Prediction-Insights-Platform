@@ -210,7 +210,7 @@ def decode_furnish(value: object, facet_df: pd.DataFrame) -> str | None:
 
 def decode_facing(value: object, facet_df: pd.DataFrame) -> str | None:
     """Decode a single FACING int ID → label."""
-    return _decode_single(value, facet_df, "FACING")
+    return _decode_single(value, facet_df, "FACING_DIRECTION")
 
 
 def decode_age(value: object, facet_df: pd.DataFrame) -> str | None:
