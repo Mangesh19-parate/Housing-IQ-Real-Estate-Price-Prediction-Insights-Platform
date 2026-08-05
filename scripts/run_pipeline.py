@@ -24,6 +24,7 @@ from scripts import (  # noqa: E402,F401  (parse_check is a placeholder; Step 04
     ingest_raw,
     parse_check,
 )
+from ml.cleaning import facet_decoders  # noqa: F401  (Step 04 decoders; Step 05 wires per-row)
 
 
 def main() -> None:
