@@ -22,6 +22,7 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from ml.cleaning import (  # noqa: E402
+    assemble,  # noqa: F401  (Step 06 dedup + outlier flagging orchestrator)
     canonical_mapping,  # noqa: F401  (Step 05 per-city canonical schema mapping)
     facet_decoders,  # noqa: F401  (Step 04 decoders; Step 05 wires per-row)
 )

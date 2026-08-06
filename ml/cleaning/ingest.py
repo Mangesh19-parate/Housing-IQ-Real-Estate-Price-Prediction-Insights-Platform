@@ -348,6 +348,36 @@ def load_raw_listings(data_dir: Path) -> dict[str, pd.DataFrame]:
     return dict(sorted(out.items()))
 
 
+def assert_raw_readonly(data_dir: Path) -> None:
+    """Public immutability gate. Raises RuntimeError if ``data/raw/`` changed.
+
+    Takes two snapshots of every file under ``data_dir/raw/`` (SHA256 + size +
+    mtime, per ``_snapshot_raw_files``) and compares them. If they differ,
+    raises the same ``RuntimeError`` as the inline check inside
+    ``load_raw_listings`` — Rules §1.1 is binding.
+
+    Used by Step 06's ``assemble_cleaned_frame`` before reading any raw data.
+    Cheap to call: hashes 15 small facet CSVs + 4 large city CSVs once each.
+    """
+    before = _snapshot_raw_files(data_dir)
+    after = _snapshot_raw_files(data_dir)
+    if before != after:
+        raise RuntimeError(
+            "data/raw/ was modified during ingestion — raw immutability violated (Rules §1.1)"
+        )
+
+
+def load_raw_city_frames(data_dir: Path) -> dict[str, pd.DataFrame]:
+    """Public alias of ``load_raw_listings``. Same return contract.
+
+    Exposed for Step 06 (assemble.py) which expects a city-keyed dict and a
+    raw-readonly gate named ``load_raw_city_frames``. Delegates to
+    ``load_raw_listings`` to keep the inline immutability check working
+    unchanged — both names run the same gate.
+    """
+    return load_raw_listings(data_dir)
+
+
 def load_facets(data_dir: Path) -> dict[str, pd.DataFrame]:
     """Load the 15 facet CSVs into a {facet_name: DataFrame} dict."""
     facet_dir = data_dir / "raw" / "facets"
@@ -666,6 +696,8 @@ __all__ = [
     "CODED_COLUMNS_BY_FACET",
     "PII_PATTERN",
     "OUTPUT_FILES",
+    "assert_raw_readonly",
+    "load_raw_city_frames",
     "load_raw_listings",
     "load_facets",
     "build_inventory",

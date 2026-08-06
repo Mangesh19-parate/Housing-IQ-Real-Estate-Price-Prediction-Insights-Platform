@@ -25,7 +25,7 @@ Use this as a living checklist. Update status honestly (Not Started / In Progres
 | 9 | Univariate EDA | Not Started | | |
 | 10 | Bivariate EDA | Not Started | | |
 | 11 | Multivariate EDA | Not Started | | |
-| 12 | Outlier detection (percentile + IQR + domain rules) | Not Started | | |
+| 12 | Outlier detection (percentile + IQR + domain rules) | Done | 2026-08-06 | `ml/cleaning/dedup.py` + `outliers.py` + `assemble.py` (Step 06, 41 tests). Per-city 1st/99th percentile + Tukey fence (1.5×IQR) on `price_inr`/`area_sqft`/`price_per_sqft`; bedRoom/bathroom > 15 cap with villa/farmhouse/independent-house exemptions. 3-level dedup tiebreaker (nonnull count → register_date → row_order). Real data: 38,487 rows post-dedup, 5,036 (≈13%) flagged outlier. Public symbols re-exported from `ml.cleaning`. Raw immutability gate (`assert_raw_readonly`) wired into assembler. |
 | 13 | Log-transform target, flag outliers, finalize training subset | Not Started | | |
 | 14 | **Checkpoint:** EDA report + outlier-flagged dataset | Not Started | | |
 
