@@ -1,0 +1,494 @@
+{"t":5,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":0,"data":{"hidden":false,"focused":true,"reason":"initial"}}
+{"t":7,"type":"perf","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":1,"data":{"metric":"longtask","value":81,"at":3669}}
+{"t":8,"type":"perf","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":2,"data":{"metric":"longtask","value":77,"at":3799}}
+{"t":9,"type":"storage.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":3,"data":{"area":"local","key":"ml-studio:right-rail-collapsed","old":"true","new":"true"}}
+{"t":9,"type":"console.warn","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":4,"data":{"message":"⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition."}}
+{"t":10,"type":"console.warn","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":5,"data":{"message":"⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath."}}
+{"t":10,"type":"storage.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":6,"data":{"area":"local","key":"ml-studio:theme","old":"dark","new":"dark"}}
+{"t":11,"type":"storage.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":7,"data":{"area":"local","key":"ml-studio:right-rail-collapsed","old":"true","new":"true"}}
+{"t":11,"type":"storage.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":8,"data":{"area":"local","key":"ml-studio:theme","old":"dark","new":"dark"}}
+{"t":11,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e1","seq":9,"data":{"attr":"class","value":"dark"}}
+{"t":11,"type":"anim.start","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e2","seq":10,"data":{"name":"pulse"}}
+{"t":12,"type":"perf","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":11,"data":{"metric":"lcp","value":3936,"at":3936}}
+{"t":12,"type":"perf","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":12,"data":{"metric":"cls","value":0.0036808319259108158,"at":4052}}
+{"t":13,"type":"perf","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":13,"data":{"metric":"cls","value":0.004430412576909651,"at":4065}}
+{"t":24,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":14,"data":{"name":"background-color","kind":"transition"}}
+{"t":24,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":15,"data":{"name":"color","kind":"transition"}}
+{"t":24,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":16,"data":{"name":"color","kind":"transition"}}
+{"t":24,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":17,"data":{"name":"color","kind":"transition"}}
+{"t":24,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":18,"data":{"name":"color","kind":"transition"}}
+{"t":25,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":19,"data":{"name":"color","kind":"transition"}}
+{"t":25,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":20,"data":{"name":"color","kind":"transition"}}
+{"t":25,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":21,"data":{"name":"color","kind":"transition"}}
+{"t":25,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":22,"data":{"name":"color","kind":"transition"}}
+{"t":25,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":23,"data":{"name":"color","kind":"transition"}}
+{"t":25,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":24,"data":{"name":"color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":25,"data":{"name":"color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":26,"data":{"name":"color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":27,"data":{"name":"color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":28,"data":{"name":"color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":29,"data":{"name":"background-color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":30,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":31,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":32,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":26,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":33,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":27,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":34,"data":{"name":"color","kind":"transition"}}
+{"t":27,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":35,"data":{"name":"background-color","kind":"transition"}}
+{"t":27,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":36,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":27,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":37,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":27,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":38,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":27,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":39,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":27,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":40,"data":{"name":"color","kind":"transition"}}
+{"t":4639,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":41,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":5341,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":42,"data":{"name":"background-color","kind":"transition"}}
+{"t":5342,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":43,"data":{"name":"color","kind":"transition"}}
+{"t":5540,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":44,"data":{"name":"background-color","kind":"transition"}}
+{"t":5540,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":45,"data":{"name":"color","kind":"transition"}}
+{"t":5721,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":46,"data":{"name":"background-color","kind":"transition"}}
+{"t":5722,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":47,"data":{"name":"color","kind":"transition"}}
+{"t":5765,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":48,"data":{"name":"background-color","kind":"transition"}}
+{"t":5766,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":49,"data":{"name":"color","kind":"transition"}}
+{"t":6167,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":50,"data":{"to":"link \"My Projects\"","toBody":false}}
+{"t":6388,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":51,"data":{"from":"http://localhost:5173/","to":"http://localhost:5173/projects","pathname":"/projects","search":"","hash":""}}
+{"t":6406,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":52,"data":{"id":"n1","method":"GET","url":"http://localhost:8000/api/projects","initiator":"fetch","initiatorStack":"at fetchProjects (http://localhost:5173/src/pages/ProjectsPage.tsx:33:25)"}}
+{"t":6407,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":53,"data":{"id":"n2","method":"GET","url":"http://localhost:8000/api/projects","initiator":"fetch","initiatorStack":"at fetchProjects (http://localhost:5173/src/pages/ProjectsPage.tsx:33:25)"}}
+{"t":6408,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":54,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":6408,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":55,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":6408,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":56,"data":{"text":"ML Studio","old":"Dashboard"}}
+{"t":6554,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":57,"data":{"name":"background-color","kind":"transition"}}
+{"t":6555,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":58,"data":{"name":"color","kind":"transition"}}
+{"t":6555,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":59,"data":{"name":"background-color","kind":"transition"}}
+{"t":6556,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":60,"data":{"name":"color","kind":"transition"}}
+{"t":6756,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":61,"data":{"id":"n1","method":"GET","url":"http://localhost:8000/api/projects","status":200,"ok":true,"durationMs":351,"initiator":"fetch","initiatorStack":"at fetchProjects (http://localhost:5173/src/pages/ProjectsPage.tsx:33:25)","statusText":"OK","contentType":"application/json","responseSize":192}}
+{"t":6776,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":62,"data":{"id":"n2","method":"GET","url":"http://localhost:8000/api/projects","status":200,"ok":true,"durationMs":370,"initiator":"fetch","initiatorStack":"at fetchProjects (http://localhost:5173/src/pages/ProjectsPage.tsx:33:25)","statusText":"OK","contentType":"application/json","responseSize":192}}
+{"t":7338,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":63,"data":{"name":"background-color","kind":"transition"}}
+{"t":7340,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":64,"data":{"name":"color","kind":"transition"}}
+{"t":7496,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":65,"data":{"name":"background-color","kind":"transition"}}
+{"t":7497,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":66,"data":{"name":"color","kind":"transition"}}
+{"t":8044,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":67,"data":{"name":"background-color","kind":"transition"}}
+{"t":8044,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":68,"data":{"name":"color","kind":"transition"}}
+{"t":8411,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":69,"data":{"to":"link \"Pipeline Visualizer\"","from":"link \"My Projects\"","toBody":false}}
+{"t":8631,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":70,"data":{"from":"http://localhost:5173/projects","to":"http://localhost:5173/pipeline","pathname":"/pipeline","search":"","hash":""}}
+{"t":8642,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":71,"data":{"id":"n3","method":"GET","url":"http://localhost:8000/api/projects/project-1/pipeline","initiator":"fetch","initiatorStack":"at fetchPipeline (http://localhost:5173/src/pages/PipelineVisualizerPage.tsx:40:25)"}}
+{"t":8643,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":72,"data":{"id":"n4","method":"GET","url":"http://localhost:8000/api/projects/project-1/pipeline","initiator":"fetch","initiatorStack":"at fetchPipeline (http://localhost:5173/src/pages/PipelineVisualizerPage.tsx:40:25)"}}
+{"t":8643,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":73,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":8643,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":74,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":8662,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":75,"data":{"id":"n3","method":"GET","url":"http://localhost:8000/api/projects/project-1/pipeline","status":200,"ok":true,"durationMs":19,"initiator":"fetch","initiatorStack":"at fetchPipeline (http://localhost:5173/src/pages/PipelineVisualizerPage.tsx:40:25)","statusText":"OK","contentType":"application/json","responseSize":708}}
+{"t":8667,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":76,"data":{"id":"n4","method":"GET","url":"http://localhost:8000/api/projects/project-1/pipeline","status":200,"ok":true,"durationMs":24,"initiator":"fetch","initiatorStack":"at fetchPipeline (http://localhost:5173/src/pages/PipelineVisualizerPage.tsx:40:25)","statusText":"OK","contentType":"application/json","responseSize":708}}
+{"t":8801,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":77,"data":{"name":"background-color","kind":"transition"}}
+{"t":8801,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":78,"data":{"name":"color","kind":"transition"}}
+{"t":8801,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":79,"data":{"name":"background-color","kind":"transition"}}
+{"t":8801,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":80,"data":{"name":"color","kind":"transition"}}
+{"t":9641,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":81,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":10105,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":82,"data":{"name":"background-color","kind":"transition"}}
+{"t":10106,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":83,"data":{"name":"color","kind":"transition"}}
+{"t":10356,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":84,"data":{"to":"link \"Datasets & Ingestion\"","from":"link \"Pipeline Visualizer\"","toBody":false}}
+{"t":10567,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":85,"data":{"from":"http://localhost:5173/pipeline","to":"http://localhost:5173/upload","pathname":"/upload","search":"","hash":""}}
+{"t":10576,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":86,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":10576,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":87,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":10576,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":88,"data":{"text":"Datasets","old":"ML Studio"}}
+{"t":10738,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":89,"data":{"name":"background-color","kind":"transition"}}
+{"t":10738,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":90,"data":{"name":"color","kind":"transition"}}
+{"t":10738,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":91,"data":{"name":"background-color","kind":"transition"}}
+{"t":10739,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":92,"data":{"name":"color","kind":"transition"}}
+{"t":11210,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":93,"data":{"name":"background-color","kind":"transition"}}
+{"t":11210,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":94,"data":{"name":"color","kind":"transition"}}
+{"t":11270,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":95,"data":{"name":"background-color","kind":"transition"}}
+{"t":11270,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":96,"data":{"name":"color","kind":"transition"}}
+{"t":11430,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":97,"data":{"to":"link \"Feature Engineering\"","from":"link \"Datasets & Ingestion\"","toBody":false}}
+{"t":11651,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":98,"data":{"from":"http://localhost:5173/upload","to":"http://localhost:5173/feature-engineering","pathname":"/feature-engineering","search":"","hash":""}}
+{"t":11663,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":99,"data":{"id":"n5","method":"GET","url":"http://localhost:8000/api/projects/project-1/formulas","initiator":"fetch","initiatorStack":"at fetchFormulas (http://localhost:5173/src/pages/FeatureEngineeringPage.tsx:34:25)"}}
+{"t":11664,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":100,"data":{"id":"n6","method":"GET","url":"http://localhost:8000/api/projects/project-1/formulas","initiator":"fetch","initiatorStack":"at fetchFormulas (http://localhost:5173/src/pages/FeatureEngineeringPage.tsx:34:25)"}}
+{"t":11664,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":101,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":11664,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":102,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":11664,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":103,"data":{"text":"ML Studio","old":"Datasets"}}
+{"t":11683,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":104,"data":{"id":"n5","method":"GET","url":"http://localhost:8000/api/projects/project-1/formulas","status":200,"ok":true,"durationMs":20,"initiator":"fetch","initiatorStack":"at fetchFormulas (http://localhost:5173/src/pages/FeatureEngineeringPage.tsx:34:25)","statusText":"OK","contentType":"application/json","responseSize":163}}
+{"t":11686,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":105,"data":{"id":"n6","method":"GET","url":"http://localhost:8000/api/projects/project-1/formulas","status":200,"ok":true,"durationMs":23,"initiator":"fetch","initiatorStack":"at fetchFormulas (http://localhost:5173/src/pages/FeatureEngineeringPage.tsx:34:25)","statusText":"OK","contentType":"application/json","responseSize":163}}
+{"t":11821,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":106,"data":{"name":"background-color","kind":"transition"}}
+{"t":11821,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":107,"data":{"name":"color","kind":"transition"}}
+{"t":11821,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":108,"data":{"name":"background-color","kind":"transition"}}
+{"t":11821,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":109,"data":{"name":"color","kind":"transition"}}
+{"t":12347,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":110,"data":{"name":"background-color","kind":"transition"}}
+{"t":12347,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":111,"data":{"name":"color","kind":"transition"}}
+{"t":12641,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":112,"data":{"to":"link \"Data Cleaning\"","from":"link \"Feature Engineering\"","toBody":false}}
+{"t":12856,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":113,"data":{"from":"http://localhost:5173/feature-engineering","to":"http://localhost:5173/preprocessing","pathname":"/preprocessing","search":"","hash":""}}
+{"t":12870,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":114,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":12871,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":115,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":12871,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":116,"data":{"text":"Preprocessing","old":"ML Studio"}}
+{"t":12920,"type":"perf","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":117,"data":{"metric":"longtask","value":58,"at":16915}}
+{"t":13055,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":118,"data":{"name":"background-color","kind":"transition"}}
+{"t":13056,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":119,"data":{"name":"color","kind":"transition"}}
+{"t":13056,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":120,"data":{"name":"background-color","kind":"transition"}}
+{"t":13056,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":121,"data":{"name":"color","kind":"transition"}}
+{"t":13666,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":122,"data":{"name":"background-color","kind":"transition"}}
+{"t":13667,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":123,"data":{"name":"color","kind":"transition"}}
+{"t":13952,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":124,"data":{"to":"link \"Feature Engineering\"","from":"link \"Data Cleaning\"","toBody":false}}
+{"t":14170,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":125,"data":{"from":"http://localhost:5173/preprocessing","to":"http://localhost:5173/feature-engineering","pathname":"/feature-engineering","search":"","hash":""}}
+{"t":14177,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":126,"data":{"id":"n7","method":"GET","url":"http://localhost:8000/api/projects/project-1/formulas","initiator":"fetch","initiatorStack":"at fetchFormulas (http://localhost:5173/src/pages/FeatureEngineeringPage.tsx:34:25)"}}
+{"t":14177,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":127,"data":{"id":"n8","method":"GET","url":"http://localhost:8000/api/projects/project-1/formulas","initiator":"fetch","initiatorStack":"at fetchFormulas (http://localhost:5173/src/pages/FeatureEngineeringPage.tsx:34:25)"}}
+{"t":14177,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":128,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":14178,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":129,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":14178,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":130,"data":{"text":"ML Studio","old":"Preprocessing"}}
+{"t":14198,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":131,"data":{"id":"n7","method":"GET","url":"http://localhost:8000/api/projects/project-1/formulas","status":200,"ok":true,"durationMs":21,"initiator":"fetch","initiatorStack":"at fetchFormulas (http://localhost:5173/src/pages/FeatureEngineeringPage.tsx:34:25)","statusText":"OK","contentType":"application/json","responseSize":163}}
+{"t":14200,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":132,"data":{"id":"n8","method":"GET","url":"http://localhost:8000/api/projects/project-1/formulas","status":200,"ok":true,"durationMs":23,"initiator":"fetch","initiatorStack":"at fetchFormulas (http://localhost:5173/src/pages/FeatureEngineeringPage.tsx:34:25)","statusText":"OK","contentType":"application/json","responseSize":163}}
+{"t":14331,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":133,"data":{"name":"background-color","kind":"transition"}}
+{"t":14331,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":134,"data":{"name":"color","kind":"transition"}}
+{"t":14331,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":135,"data":{"name":"background-color","kind":"transition"}}
+{"t":14332,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":136,"data":{"name":"color","kind":"transition"}}
+{"t":14641,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":137,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":15007,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":138,"data":{"name":"background-color","kind":"transition"}}
+{"t":15008,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":139,"data":{"name":"color","kind":"transition"}}
+{"t":15258,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":140,"data":{"to":"link \"Data Diagnostics\"","from":"link \"Feature Engineering\"","toBody":false}}
+{"t":15473,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":141,"data":{"from":"http://localhost:5173/feature-engineering","to":"http://localhost:5173/diagnostics","pathname":"/diagnostics","search":"","hash":""}}
+{"t":15479,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":142,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":15479,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":143,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":15480,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":144,"data":{"text":"Data Analysis","old":"ML Studio"}}
+{"t":15635,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":145,"data":{"name":"background-color","kind":"transition"}}
+{"t":15635,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":146,"data":{"name":"color","kind":"transition"}}
+{"t":15635,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":147,"data":{"name":"background-color","kind":"transition"}}
+{"t":15636,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":148,"data":{"name":"color","kind":"transition"}}
+{"t":16194,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":149,"data":{"name":"background-color","kind":"transition"}}
+{"t":16194,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":150,"data":{"name":"color","kind":"transition"}}
+{"t":17113,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":151,"data":{"to":"link \"Smart Recommendations\"","from":"link \"Data Diagnostics\"","toBody":false}}
+{"t":17335,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":152,"data":{"from":"http://localhost:5173/diagnostics","to":"http://localhost:5173/recommendations","pathname":"/recommendations","search":"","hash":""}}
+{"t":17341,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":153,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":17341,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":154,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":17341,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":155,"data":{"text":"Smart Recommendations","old":"Data Analysis"}}
+{"t":17495,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":156,"data":{"name":"background-color","kind":"transition"}}
+{"t":17495,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":157,"data":{"name":"color","kind":"transition"}}
+{"t":17496,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":158,"data":{"name":"background-color","kind":"transition"}}
+{"t":17496,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":159,"data":{"name":"color","kind":"transition"}}
+{"t":18050,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":160,"data":{"name":"background-color","kind":"transition"}}
+{"t":18050,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":161,"data":{"name":"color","kind":"transition"}}
+{"t":18303,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":162,"data":{"to":"link \"Model Training\"","from":"link \"Smart Recommendations\"","toBody":false}}
+{"t":18529,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":163,"data":{"from":"http://localhost:5173/recommendations","to":"http://localhost:5173/training","pathname":"/training","search":"","hash":""}}
+{"t":18537,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":164,"data":{"from":"http://localhost:5173/training","to":"http://localhost:5173/upload","pathname":"/upload","search":"","hash":""}}
+{"t":18538,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":165,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":18538,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":166,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":18539,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":167,"data":{"text":"Model Training","old":"Smart Recommendations"}}
+{"t":18547,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":168,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":18548,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":169,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":18548,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":170,"data":{"text":"Datasets","old":"Model Training"}}
+{"t":18566,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":171,"data":{"name":"background-color","kind":"transition"}}
+{"t":18567,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":172,"data":{"name":"color","kind":"transition"}}
+{"t":18692,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":173,"data":{"name":"background-color","kind":"transition"}}
+{"t":18692,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":174,"data":{"name":"color","kind":"transition"}}
+{"t":18700,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":175,"data":{"name":"background-color","kind":"transition"}}
+{"t":18700,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":176,"data":{"name":"color","kind":"transition"}}
+{"t":19242,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":177,"data":{"name":"background-color","kind":"transition"}}
+{"t":19242,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":178,"data":{"name":"color","kind":"transition"}}
+{"t":19315,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":179,"data":{"name":"background-color","kind":"transition"}}
+{"t":19315,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":180,"data":{"name":"color","kind":"transition"}}
+{"t":19642,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":181,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":19710,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":182,"data":{"name":"background-color","kind":"transition"}}
+{"t":19710,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":183,"data":{"name":"color","kind":"transition"}}
+{"t":19734,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":184,"data":{"name":"background-color","kind":"transition"}}
+{"t":19734,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":185,"data":{"name":"color","kind":"transition"}}
+{"t":20211,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":186,"data":{"from":"http://localhost:5173/upload","to":"http://localhost:5173/training","pathname":"/training","search":"","hash":""}}
+{"t":20218,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":187,"data":{"from":"http://localhost:5173/training","to":"http://localhost:5173/upload","pathname":"/upload","search":"","hash":""}}
+{"t":20218,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":188,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":20218,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":189,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":20219,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":190,"data":{"text":"Model Training","old":"Datasets"}}
+{"t":20230,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":191,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":20230,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":192,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":20232,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":193,"data":{"text":"Datasets","old":"Model Training"}}
+{"t":20249,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":194,"data":{"name":"background-color","kind":"transition"}}
+{"t":20249,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":195,"data":{"name":"color","kind":"transition"}}
+{"t":20250,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":196,"data":{"name":"background-color","kind":"transition"}}
+{"t":20250,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":197,"data":{"name":"color","kind":"transition"}}
+{"t":20872,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":198,"data":{"name":"background-color","kind":"transition"}}
+{"t":20873,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":199,"data":{"name":"color","kind":"transition"}}
+{"t":20880,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":200,"data":{"name":"background-color","kind":"transition"}}
+{"t":20881,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":201,"data":{"name":"color","kind":"transition"}}
+{"t":21110,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":202,"data":{"to":"link \"Experiments Tracking\"","from":"link \"Model Training\"","toBody":false}}
+{"t":21327,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":203,"data":{"from":"http://localhost:5173/upload","to":"http://localhost:5173/experiments","pathname":"/experiments","search":"","hash":""}}
+{"t":21338,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":204,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":21339,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":205,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":21339,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":206,"data":{"text":"Experiments","old":"Datasets"}}
+{"t":21511,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":207,"data":{"name":"background-color","kind":"transition"}}
+{"t":21512,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":208,"data":{"name":"color","kind":"transition"}}
+{"t":21512,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":209,"data":{"name":"background-color","kind":"transition"}}
+{"t":21512,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":210,"data":{"name":"color","kind":"transition"}}
+{"t":21960,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":211,"data":{"name":"background-color","kind":"transition"}}
+{"t":21961,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":212,"data":{"name":"color","kind":"transition"}}
+{"t":22655,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":213,"data":{"to":"link \"Model Registry\"","from":"link \"Experiments Tracking\"","toBody":false}}
+{"t":22872,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":214,"data":{"from":"http://localhost:5173/experiments","to":"http://localhost:5173/registry","pathname":"/registry","search":"","hash":""}}
+{"t":22880,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":215,"data":{"id":"n9","method":"GET","url":"http://localhost:8000/api/projects/project-1/registry","initiator":"fetch","initiatorStack":"at fetchRegistry (http://localhost:5173/src/pages/ModelRegistryPage.tsx:35:25)"}}
+{"t":22881,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":216,"data":{"id":"n10","method":"GET","url":"http://localhost:8000/api/projects/project-1/registry","initiator":"fetch","initiatorStack":"at fetchRegistry (http://localhost:5173/src/pages/ModelRegistryPage.tsx:35:25)"}}
+{"t":22881,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":217,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":22881,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":218,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":22881,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":219,"data":{"text":"ML Studio","old":"Experiments"}}
+{"t":22909,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":220,"data":{"id":"n9","method":"GET","url":"http://localhost:8000/api/projects/project-1/registry","status":200,"ok":true,"durationMs":26,"initiator":"fetch","initiatorStack":"at fetchRegistry (http://localhost:5173/src/pages/ModelRegistryPage.tsx:35:25)","statusText":"OK","contentType":"application/json","responseSize":753}}
+{"t":22915,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":221,"data":{"id":"n10","method":"GET","url":"http://localhost:8000/api/projects/project-1/registry","status":200,"ok":true,"durationMs":34,"initiator":"fetch","initiatorStack":"at fetchRegistry (http://localhost:5173/src/pages/ModelRegistryPage.tsx:35:25)","statusText":"OK","contentType":"application/json","responseSize":753}}
+{"t":23033,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":222,"data":{"name":"background-color","kind":"transition"}}
+{"t":23033,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":223,"data":{"name":"color","kind":"transition"}}
+{"t":23033,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":224,"data":{"name":"background-color","kind":"transition"}}
+{"t":23033,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":225,"data":{"name":"color","kind":"transition"}}
+{"t":23670,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":226,"data":{"name":"background-color","kind":"transition"}}
+{"t":23670,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":227,"data":{"name":"color","kind":"transition"}}
+{"t":23987,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":228,"data":{"to":"link \"Model Layer Cutaway\"","from":"link \"Model Registry\"","toBody":false}}
+{"t":24203,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":229,"data":{"from":"http://localhost:5173/registry","to":"http://localhost:5173/cutaway","pathname":"/cutaway","search":"","hash":""}}
+{"t":24220,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":230,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":24220,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":231,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":24256,"type":"perf","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":232,"data":{"metric":"longtask","value":50,"at":28261}}
+{"t":24406,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":233,"data":{"name":"background-color","kind":"transition"}}
+{"t":24406,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":234,"data":{"name":"color","kind":"transition"}}
+{"t":24407,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":235,"data":{"name":"background-color","kind":"transition"}}
+{"t":24407,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":236,"data":{"name":"color","kind":"transition"}}
+{"t":24645,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":237,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":26186,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":238,"data":{"name":"background-color","kind":"transition"}}
+{"t":26186,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":239,"data":{"name":"color","kind":"transition"}}
+{"t":26236,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":240,"data":{"name":"background-color","kind":"transition"}}
+{"t":26237,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":241,"data":{"name":"color","kind":"transition"}}
+{"t":27141,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":242,"data":{"to":"link \"API Playground\"","from":"link \"Model Layer Cutaway\"","toBody":false}}
+{"t":27363,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":243,"data":{"from":"http://localhost:5173/cutaway","to":"http://localhost:5173/deployment","pathname":"/deployment","search":"","hash":""}}
+{"t":27374,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":244,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":27374,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":245,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":27375,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":246,"data":{"text":"Deployment","old":"ML Studio"}}
+{"t":27550,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":247,"data":{"name":"background-color","kind":"transition"}}
+{"t":27551,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":248,"data":{"name":"color","kind":"transition"}}
+{"t":27551,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":249,"data":{"name":"background-color","kind":"transition"}}
+{"t":27551,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":250,"data":{"name":"color","kind":"transition"}}
+{"t":27925,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":251,"data":{"name":"background-color","kind":"transition"}}
+{"t":27925,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":252,"data":{"name":"color","kind":"transition"}}
+{"t":28230,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":253,"data":{"to":"link \"Ops Telemetry Monitor\"","from":"link \"API Playground\"","toBody":false}}
+{"t":28453,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":254,"data":{"from":"http://localhost:5173/deployment","to":"http://localhost:5173/monitoring","pathname":"/monitoring","search":"","hash":""}}
+{"t":28460,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":255,"data":{"id":"n11","method":"GET","url":"http://localhost:8000/api/monitoring/telemetry","initiator":"fetch","initiatorStack":"at fetchTelemetry (http://localhost:5173/src/pages/MonitoringPage.tsx:35:25)"}}
+{"t":28461,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":256,"data":{"id":"n12","method":"GET","url":"http://localhost:8000/api/monitoring/telemetry","initiator":"fetch","initiatorStack":"at fetchTelemetry (http://localhost:5173/src/pages/MonitoringPage.tsx:35:25)"}}
+{"t":28461,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":257,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":28461,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":258,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":28461,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":259,"data":{"text":"Monitoring","old":"Deployment"}}
+{"t":28481,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":260,"data":{"id":"n11","method":"GET","url":"http://localhost:8000/api/monitoring/telemetry","status":200,"ok":true,"durationMs":21,"initiator":"fetch","initiatorStack":"at fetchTelemetry (http://localhost:5173/src/pages/MonitoringPage.tsx:35:25)","statusText":"OK","contentType":"application/json","responseSize":247}}
+{"t":28481,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":261,"data":{"id":"n13","method":"GET","url":"http://localhost:8000/api/monitoring/logs","initiator":"fetch","initiatorStack":"at fetchTelemetry (http://localhost:5173/src/pages/MonitoringPage.tsx:40:29)"}}
+{"t":28484,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e21","seq":262,"data":{"text":"CRITICAL_DRIFT","old":"HEALTHY"}}
+{"t":28484,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e21","seq":263,"data":{"attr":"class","value":"rounded-full px-3 py-1.5 text-xs font-semibold border bg-amber-950/40 border-amber-800/30 text-amber-400","old":"rounded-full px-3 py-1.5 text-xs font-semibold border bg-emerald-950/40 border-emerald-800/30 text-emerald-400"}}
+{"t":28484,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e22","seq":264,"data":{"text":"71.81 ms","old":"54.2 ms"}}
+{"t":28484,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e23","seq":265,"data":{"text":"418 rpm","old":"612 rpm"}}
+{"t":28485,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e24","seq":266,"data":{"text":"0.1789","old":"0.08"}}
+{"t":28485,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":267,"data":{"id":"n12","method":"GET","url":"http://localhost:8000/api/monitoring/telemetry","status":200,"ok":true,"durationMs":24,"initiator":"fetch","initiatorStack":"at fetchTelemetry (http://localhost:5173/src/pages/MonitoringPage.tsx:35:25)","statusText":"OK","contentType":"application/json","responseSize":140}}
+{"t":28485,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":268,"data":{"id":"n14","method":"GET","url":"http://localhost:8000/api/monitoring/logs","initiator":"fetch","initiatorStack":"at fetchTelemetry (http://localhost:5173/src/pages/MonitoringPage.tsx:40:29)"}}
+{"t":28487,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e21","seq":269,"data":{"text":"HEALTHY","old":"CRITICAL_DRIFT"}}
+{"t":28487,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e21","seq":270,"data":{"attr":"class","value":"rounded-full px-3 py-1.5 text-xs font-semibold border bg-emerald-950/40 border-emerald-800/30 text-emerald-400","old":"rounded-full px-3 py-1.5 text-xs font-semibold border bg-amber-950/40 border-amber-800/30 text-amber-400"}}
+{"t":28488,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e22","seq":271,"data":{"text":"58.67 ms","old":"71.81 ms"}}
+{"t":28488,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e23","seq":272,"data":{"text":"640 rpm","old":"418 rpm"}}
+{"t":28488,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e24","seq":273,"data":{"text":"0.0291","old":"0.1789"}}
+{"t":28492,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":274,"data":{"id":"n13","method":"GET","url":"http://localhost:8000/api/monitoring/logs","status":200,"ok":true,"durationMs":11,"initiator":"fetch","initiatorStack":"at fetchTelemetry (http://localhost:5173/src/pages/MonitoringPage.tsx:40:29)","statusText":"OK","contentType":"application/json","responseSize":359}}
+{"t":28502,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":275,"data":{"id":"n14","method":"GET","url":"http://localhost:8000/api/monitoring/logs","status":200,"ok":true,"durationMs":18,"initiator":"fetch","initiatorStack":"at fetchTelemetry (http://localhost:5173/src/pages/MonitoringPage.tsx:40:29)","statusText":"OK","contentType":"application/json","responseSize":359}}
+{"t":28622,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":276,"data":{"name":"background-color","kind":"transition"}}
+{"t":28622,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":277,"data":{"name":"color","kind":"transition"}}
+{"t":28623,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":278,"data":{"name":"background-color","kind":"transition"}}
+{"t":28623,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":279,"data":{"name":"color","kind":"transition"}}
+{"t":29524,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":280,"data":{"name":"background-color","kind":"transition"}}
+{"t":29524,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":281,"data":{"name":"color","kind":"transition"}}
+{"t":29646,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":282,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":29801,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":283,"data":{"to":"link \"Workspace Settings\"","from":"link \"Ops Telemetry Monitor\"","toBody":false}}
+{"t":30023,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":284,"data":{"from":"http://localhost:5173/monitoring","to":"http://localhost:5173/settings","pathname":"/settings","search":"","hash":""}}
+{"t":30041,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":285,"data":{"id":"n15","method":"GET","url":"http://localhost:8000/api/settings","initiator":"fetch","initiatorStack":"at fetchSettings (http://localhost:5173/src/pages/SettingsPage.tsx:40:25)"}}
+{"t":30041,"type":"net.pending","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":286,"data":{"id":"n16","method":"GET","url":"http://localhost:8000/api/settings","initiator":"fetch","initiatorStack":"at fetchSettings (http://localhost:5173/src/pages/SettingsPage.tsx:40:25)"}}
+{"t":30041,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":287,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":30041,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":288,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":30041,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":289,"data":{"text":"Settings","old":"Monitoring"}}
+{"t":30071,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":290,"data":{"id":"n15","method":"GET","url":"http://localhost:8000/api/settings","status":200,"ok":true,"durationMs":30,"initiator":"fetch","initiatorStack":"at fetchSettings (http://localhost:5173/src/pages/SettingsPage.tsx:40:25)","statusText":"OK","contentType":"application/json","responseSize":404}}
+{"t":30072,"type":"net.request","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":291,"data":{"id":"n16","method":"GET","url":"http://localhost:8000/api/settings","status":200,"ok":true,"durationMs":32,"initiator":"fetch","initiatorStack":"at fetchSettings (http://localhost:5173/src/pages/SettingsPage.tsx:40:25)","statusText":"OK","contentType":"application/json","responseSize":404}}
+{"t":30206,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":292,"data":{"name":"background-color","kind":"transition"}}
+{"t":30207,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":293,"data":{"name":"color","kind":"transition"}}
+{"t":30207,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":294,"data":{"name":"background-color","kind":"transition"}}
+{"t":30207,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":295,"data":{"name":"color","kind":"transition"}}
+{"t":30719,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":296,"data":{"name":"background-color","kind":"transition"}}
+{"t":30719,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":297,"data":{"name":"color","kind":"transition"}}
+{"t":30754,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":298,"data":{"name":"background-color","kind":"transition"}}
+{"t":30755,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":299,"data":{"name":"color","kind":"transition"}}
+{"t":33462,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":300,"data":{"name":"background-color","kind":"transition"}}
+{"t":33464,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":301,"data":{"name":"color","kind":"transition"}}
+{"t":33670,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":302,"data":{"name":"background-color","kind":"transition"}}
+{"t":33670,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":303,"data":{"name":"color","kind":"transition"}}
+{"t":33709,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":304,"data":{"name":"background-color","kind":"transition"}}
+{"t":33709,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":305,"data":{"name":"color","kind":"transition"}}
+{"t":33775,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":306,"data":{"name":"background-color","kind":"transition"}}
+{"t":33776,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":307,"data":{"name":"color","kind":"transition"}}
+{"t":33861,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":308,"data":{"name":"background-color","kind":"transition"}}
+{"t":33861,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":309,"data":{"name":"color","kind":"transition"}}
+{"t":33911,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":310,"data":{"name":"background-color","kind":"transition"}}
+{"t":33911,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":311,"data":{"name":"color","kind":"transition"}}
+{"t":34650,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":312,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":34969,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":313,"data":{"name":"background-color","kind":"transition"}}
+{"t":34970,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":314,"data":{"name":"color","kind":"transition"}}
+{"t":35994,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":315,"data":{"name":"background-color","kind":"transition"}}
+{"t":36337,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":316,"data":{"to":"button \"Switch to Kraken Light theme\"","from":"link \"Workspace Settings\"","toBody":false}}
+{"t":36546,"type":"storage.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":317,"data":{"area":"local","key":"ml-studio:theme","old":"dark","new":"light"}}
+{"t":36546,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e25","seq":318,"data":{"text":"Linear Dark","old":"Kraken Light"}}
+{"t":36547,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e1","seq":319,"data":{"attr":"class","value":"","old":"dark"}}
+{"t":36726,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":320,"data":{"name":"color","kind":"transition"}}
+{"t":36727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":321,"data":{"name":"color","kind":"transition"}}
+{"t":36727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":322,"data":{"name":"color","kind":"transition"}}
+{"t":36727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":323,"data":{"name":"color","kind":"transition"}}
+{"t":36727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":324,"data":{"name":"color","kind":"transition"}}
+{"t":36727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":325,"data":{"name":"color","kind":"transition"}}
+{"t":36727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":326,"data":{"name":"color","kind":"transition"}}
+{"t":36727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":327,"data":{"name":"color","kind":"transition"}}
+{"t":36727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":328,"data":{"name":"color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":329,"data":{"name":"color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":330,"data":{"name":"color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":331,"data":{"name":"color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":332,"data":{"name":"color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":333,"data":{"name":"color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":334,"data":{"name":"background-color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":335,"data":{"name":"background-color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":336,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":36728,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":337,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":338,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":339,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":340,"data":{"name":"color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":341,"data":{"name":"background-color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":342,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":343,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":344,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":345,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":346,"data":{"name":"color","kind":"transition"}}
+{"t":36729,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e26","seq":347,"data":{"name":"background-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e27","seq":348,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e27","seq":349,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e27","seq":350,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e27","seq":351,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e27","seq":352,"data":{"name":"color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e28","seq":353,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e28","seq":354,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e28","seq":355,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e28","seq":356,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":36730,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e28","seq":357,"data":{"name":"color","kind":"transition"}}
+{"t":36731,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e29","seq":358,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":36731,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e29","seq":359,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":36731,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e29","seq":360,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":36731,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e29","seq":361,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":36731,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e29","seq":362,"data":{"name":"color","kind":"transition"}}
+{"t":36731,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e30","seq":363,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":36731,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e30","seq":364,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":36732,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e30","seq":365,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":36732,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e30","seq":366,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":36732,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e30","seq":367,"data":{"name":"color","kind":"transition"}}
+{"t":38773,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":368,"data":{"name":"background-color","kind":"transition"}}
+{"t":39119,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":369,"data":{"name":"background-color","kind":"transition"}}
+{"t":39119,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":370,"data":{"name":"color","kind":"transition"}}
+{"t":39651,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":371,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":39682,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":372,"data":{"name":"background-color","kind":"transition"}}
+{"t":39682,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":373,"data":{"name":"color","kind":"transition"}}
+{"t":39744,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":374,"data":{"name":"background-color","kind":"transition"}}
+{"t":39744,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":375,"data":{"name":"color","kind":"transition"}}
+{"t":40040,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":376,"data":{"to":"link \"Project Overview\"","from":"button \"Switch to Linear Dark theme\"","toBody":false}}
+{"t":40258,"type":"route.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":377,"data":{"from":"http://localhost:5173/settings","to":"http://localhost:5173/","pathname":"/","search":"","hash":""}}
+{"t":40271,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":378,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":40271,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":379,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":40271,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e20","seq":380,"data":{"text":"Dashboard","old":"Settings"}}
+{"t":40440,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":381,"data":{"name":"background-color","kind":"transition"}}
+{"t":40441,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":382,"data":{"name":"color","kind":"transition"}}
+{"t":40441,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":383,"data":{"name":"background-color","kind":"transition"}}
+{"t":40441,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":384,"data":{"name":"color","kind":"transition"}}
+{"t":41655,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":385,"data":{"name":"background-color","kind":"transition"}}
+{"t":41655,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":386,"data":{"name":"color","kind":"transition"}}
+{"t":41727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":387,"data":{"name":"background-color","kind":"transition"}}
+{"t":41727,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":388,"data":{"name":"color","kind":"transition"}}
+{"t":44654,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":389,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":46502,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":390,"data":{"name":"background-color","kind":"transition"}}
+{"t":48077,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":391,"data":{"from":"link \"Project Overview\"","toBody":true}}
+{"t":48077,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":392,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":48087,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":393,"data":{"hidden":true,"focused":false,"reason":"visibilitychange"}}
+{"t":49775,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":394,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":55773,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":395,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":57370,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":396,"data":{"hidden":false,"focused":false,"reason":"visibilitychange"}}
+{"t":57403,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":397,"data":{"hidden":false,"focused":true,"reason":"focus"}}
+{"t":57403,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":398,"data":{"to":"link \"Project Overview\"","toBody":false}}
+{"t":59488,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":399,"data":{"from":"link \"Project Overview\"","toBody":true}}
+{"t":59489,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":400,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":59494,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":401,"data":{"hidden":true,"focused":false,"reason":"visibilitychange"}}
+{"t":61771,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":402,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":67768,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":403,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":71905,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":404,"data":{"hidden":false,"focused":false,"reason":"visibilitychange"}}
+{"t":71908,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":405,"data":{"hidden":false,"focused":true,"reason":"focus"}}
+{"t":71909,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":406,"data":{"to":"link \"Project Overview\"","toBody":false}}
+{"t":72764,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":407,"data":{"name":"background-color","kind":"transition"}}
+{"t":72764,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":408,"data":{"name":"color","kind":"transition"}}
+{"t":72770,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":409,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":72823,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":410,"data":{"name":"background-color","kind":"transition"}}
+{"t":72824,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":411,"data":{"name":"color","kind":"transition"}}
+{"t":72935,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":412,"data":{"name":"background-color","kind":"transition"}}
+{"t":72935,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":413,"data":{"name":"color","kind":"transition"}}
+{"t":74693,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":414,"data":{"name":"background-color","kind":"transition"}}
+{"t":74966,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":415,"data":{"to":"button \"Switch to Linear Dark theme\"","from":"link \"Project Overview\"","toBody":false}}
+{"t":75181,"type":"storage.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":416,"data":{"area":"local","key":"ml-studio:theme","old":"light","new":"dark"}}
+{"t":75181,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e25","seq":417,"data":{"text":"Kraken Light","old":"Linear Dark"}}
+{"t":75182,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e1","seq":418,"data":{"attr":"class","value":"dark","old":""}}
+{"t":75361,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e3","seq":419,"data":{"name":"background-color","kind":"transition"}}
+{"t":75361,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e4","seq":420,"data":{"name":"color","kind":"transition"}}
+{"t":75361,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e5","seq":421,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e6","seq":422,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e7","seq":423,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e8","seq":424,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e9","seq":425,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e10","seq":426,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e11","seq":427,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e12","seq":428,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e13","seq":429,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e14","seq":430,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e15","seq":431,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e16","seq":432,"data":{"name":"color","kind":"transition"}}
+{"t":75362,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e17","seq":433,"data":{"name":"color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":434,"data":{"name":"background-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":435,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":436,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":437,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":438,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":439,"data":{"name":"color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":440,"data":{"name":"background-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":441,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":442,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":443,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":444,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":75363,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":445,"data":{"name":"color","kind":"transition"}}
+{"t":75657,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":446,"data":{"name":"background-color","kind":"transition"}}
+{"t":76419,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":447,"data":{"to":"combobox \"ProjectAll ProjectsProject AProject B\"","from":"button \"Switch to Kraken Light theme\"","toBody":false}}
+{"t":77773,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":448,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":78489,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":449,"data":{"to":"textbox \"Fromto\"","from":"combobox \"ProjectAll ProjectsProject AProject B\"","toBody":false}}
+{"t":79900,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":450,"data":{"to":"textbox","from":"textbox \"Fromto\"","toBody":false}}
+{"t":80484,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e18","seq":451,"data":{"name":"background-color","kind":"transition"}}
+{"t":81312,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":452,"data":{"to":"button \"Customize\"","from":"textbox","toBody":false}}
+{"t":82776,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":453,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":84979,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":454,"data":{"to":"button \"Expand right rail\"","from":"button \"Customize\"","toBody":false}}
+{"t":85197,"type":"storage.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":455,"data":{"area":"local","key":"ml-studio:right-rail-collapsed","old":"true","new":"false"}}
+{"t":85198,"type":"dom.removed","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":456,"data":{"role":"paragraph","name":"","region":"e19"}}
+{"t":85198,"type":"dom.added","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e31","seq":457,"data":{"role":"heading","name":"Key Screens","region":"e32"}}
+{"t":85198,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e33","seq":458,"data":{"attr":"aria-expanded","value":"true","old":"false"}}
+{"t":85198,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e33","seq":459,"data":{"text":"◀","old":"▶"}}
+{"t":85199,"type":"dom.added","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e34","seq":460,"data":{"role":"list","name":"","region":"e19"}}
+{"t":85199,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":461,"data":{"attr":"class","value":"shrink-0 border-l border-slate-200 bg-white transition-all dark:border-hairline dark:bg-surface-1 w-72","old":"shrink-0 border-l border-slate-200 bg-white transition-all dark:border-hairline dark:bg-surface-1 w-12"}}
+{"t":85355,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":462,"data":{"name":"width","kind":"transition"}}
+{"t":87610,"type":"storage.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":463,"data":{"area":"local","key":"ml-studio:right-rail-collapsed","old":"false","new":"true"}}
+{"t":87611,"type":"dom.removed","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":464,"data":{"role":"list","name":"","region":"e19"}}
+{"t":87611,"type":"dom.removed","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":465,"data":{"role":"heading","name":"Key Screens","region":"e32"}}
+{"t":87611,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e33","seq":466,"data":{"attr":"aria-expanded","value":"false","old":"true"}}
+{"t":87611,"type":"dom.text","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e33","seq":467,"data":{"text":"▶","old":"◀"}}
+{"t":87611,"type":"dom.added","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e35","seq":468,"data":{"role":"paragraph","name":"","region":"e19"}}
+{"t":87611,"type":"dom.attr","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":469,"data":{"attr":"class","value":"shrink-0 border-l border-slate-200 bg-white transition-all dark:border-hairline dark:bg-surface-1 w-12","old":"shrink-0 border-l border-slate-200 bg-white transition-all dark:border-hairline dark:bg-surface-1 w-72"}}
+{"t":87773,"type":"anim.end","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","ref":"e19","seq":470,"data":{"name":"width","kind":"transition"}}
+{"t":87778,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":471,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":89510,"type":"focus.change","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":472,"data":{"from":"button \"Expand right rail\"","toBody":true}}
+{"t":89511,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":473,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":92782,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":474,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":97787,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":475,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":102790,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":476,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":107796,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":477,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":112798,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":478,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":114528,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":479,"data":{"hidden":true,"focused":false,"reason":"visibilitychange"}}
+{"t":118767,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":480,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":119605,"type":"console.debug","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":481,"data":{"message":"[vite] hot updated: /src/layout/AppShell.tsx"}}
+{"t":119605,"type":"console.debug","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":482,"data":{"message":"[vite] hot updated: /src/index.css"}}
+{"t":119835,"type":"dom.removed","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":483,"data":{"role":"complementary","name":"Key Screens Preview","region":"e36"}}
+{"t":124767,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":484,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":129774,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":485,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":135769,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":486,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":140783,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":487,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":146769,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":488,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":151038,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":489,"data":{"hidden":true,"focused":true,"reason":"focus"}}
+{"t":151042,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":490,"data":{"hidden":false,"focused":true,"reason":"visibilitychange"}}
+{"t":151053,"type":"perf","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":491,"data":{"metric":"cls","value":0.012468796194645398,"at":155106}}
+{"t":151774,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":492,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":153818,"type":"page.health","sessionId":"sfccd8390-deff-4864-b129-e14f815d4e8f","seq":493,"data":{"hidden":true,"focused":true,"reason":"visibilitychange"}}
