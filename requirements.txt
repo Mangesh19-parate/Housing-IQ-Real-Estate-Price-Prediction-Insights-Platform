@@ -29,7 +29,10 @@ requests==2.32.3             # Flask -> FastAPI internal HTTP calls
 
 # --- Persistence -------------------------------------------------------------
 # SQLite ships with Python's standard library (sqlite3) — no package needed.
-psycopg2-binary==2.9.9        # Postgres driver for the prod-ready path
+psycopg2-binary==2.9.9        # Postgres driver: prod-path connections AND the
+                                # migrations runner's lazy-imported postgres branch
+                                # (see migrations/runner.py). SQLite-only dev runs
+                                # never import this driver.
 pyarrow==17.0.0                # Parquet read/write (clean_listings.parquet, caches)
 
 # --- Model artifacts ----------------------------------------------------------

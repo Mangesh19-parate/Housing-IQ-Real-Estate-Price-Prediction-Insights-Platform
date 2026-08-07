@@ -3,8 +3,20 @@
 Operational/logging tables only — no user data, no auth (per CLAUDE.md).
 Schema follows ``docs/05-BACKEND-SCHEMA.md`` §5 + §U-SCHEMA-11 + §U-SCHEMA-13.
 
+This module is a thin shim over ``migrations.runner.migrate()``. The actual
+DDL lives in versioned SQL files under ``migrations/sqlite/`` and
+``migrations/postgres/``; ``init_db()`` delegates to the runner so that
+convergence over time (add/rename columns) is a forward migration, not a
+hand-edited ``_DDL`` tuple. The migration runner is the single source of
+truth for what tables exist.
+
 Parameterized SQL only (``?`` placeholders). Per CLAUDE.md and 08-RULES §1:
 no SQLAlchemy, no ORM, no f-strings or ``.format()`` into a query string.
+
+Every new SQLite connection opened via ``get_db()`` runs
+``PRAGMA foreign_keys = ON`` (per the ``sqlite-postgres-schema`` skill's
+"Gotchas" note — SQLite has FKs off by default, and turning them on only
+at init time would silently no-op for connections that bypass ``init_db``).
 """
 
 from __future__ import annotations
@@ -19,8 +31,11 @@ from typing import Final
 from app.config import APP_DB_PATH
 
 # ---------------------------------------------------------------------------
-# Schema DDL — single source of truth in code, tracks 05-BACKEND-SCHEMA.md.
-# Add new tables here when the schema doc adds them. Do not edit ad-hoc.
+# DDL — re-exported for back-compat. The real source of truth is the
+# versioned SQL files under ``migrations/<dialect>/001_initial.sql``; the
+# runner is what ``init_db()`` invokes. Kept importable so existing tests
+# (``tests/test_scaffolding.py``) and any caller that introspects the
+# in-code schema keep working unchanged.
 # ---------------------------------------------------------------------------
 
 _DDL: Final[tuple[str, ...]] = (
@@ -99,11 +114,15 @@ def get_db(db_path: str | None = None) -> Iterator[sqlite3.Connection]:
     Caller commits via the connection (``conn.commit()``); the context manager
     only handles rollback on exception. Pass ``db_path`` to override the env
     var (used by tests).
+
+    Every connection has ``PRAGMA foreign_keys = ON`` set on open — see the
+    module docstring for why.
     """
     path = Path(db_path) if db_path is not None else Path(APP_DB_PATH)
     _ensure_parent_dir(path)
     conn = sqlite3.connect(path, check_same_thread=False)
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys = ON")
     try:
         yield conn
     except Exception:
@@ -115,14 +134,19 @@ def get_db(db_path: str | None = None) -> Iterator[sqlite3.Connection]:
         conn.close()
 
 
-def init_db(db_path: str | None = None) -> None:
-    """Create the four operational tables if they don't already exist.
+def init_db(db_path: str | None = None) -> list:
+    """Run all undiscovered migrations against the SQLite DB.
 
-    Idempotent — safe to call from every Flask request or FastAPI startup.
+    Delegates to ``migrations.runner.migrate(source="init_db")``. Returns
+    the list of ``MigrationRecord``s applied this run (empty list = already
+    up to date). Existing callers ignore the return value, so the widened
+    return type is a non-breaking change.
     """
-    with get_db(db_path) as conn:
-        for stmt in _DDL:
-            conn.execute(stmt)
+    # Lazy import keeps ``app.database.db`` importable without committing
+    # to the migrations package's runtime cost in every context.
+    from migrations.runner import migrate
+
+    return migrate(db_path_or_url=db_path, source="init_db")
 
 
 def existing_tables(db_path: str | None = None) -> set[str]:
@@ -134,4 +158,11 @@ def existing_tables(db_path: str | None = None) -> set[str]:
     return {row["name"] for row in rows}
 
 
-__all__ = ["get_db", "init_db", "existing_tables", "_EXPECTED_TABLES"]
+__all__ = [
+    "get_db",
+    "init_db",
+    "existing_tables",
+    "_EXPECTED_TABLES",
+    "_DDL",
+    "MigrationRecord",
+]
