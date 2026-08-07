@@ -1,0 +1,31 @@
+from api.schemas.predict_v3 import (
+    INPUT_FIELD_TYPES_V3,
+    INPUT_FIELDS_V3,
+    AgePossession,
+    Balcony,
+    FacingDirection,
+    FloorCategory,
+    FurnishingType,
+    LuxuryCategory,
+    PredictRequestV3,
+    PredictResponseV3,
+    PropertyType,
+    ShapContribution,
+    TransactType,
+)
+
+__all__ = [
+    "INPUT_FIELDS_V3",
+    "INPUT_FIELD_TYPES_V3",
+    "AgePossession",
+    "Balcony",
+    "FacingDirection",
+    "FloorCategory",
+    "FurnishingType",
+    "LuxuryCategory",
+    "PredictRequestV3",
+    "PredictResponseV3",
+    "PropertyType",
+    "ShapContribution",
+    "TransactType",
+]
