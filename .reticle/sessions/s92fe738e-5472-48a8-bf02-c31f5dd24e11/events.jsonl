@@ -1,0 +1,221 @@
+{"t":1,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":0,"data":{"hidden":false,"focused":true,"reason":"initial"}}
+{"t":1,"type":"console.warn","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":1,"data":{"message":"⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition."}}
+{"t":1,"type":"console.warn","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":2,"data":{"message":"⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath."}}
+{"t":1,"type":"storage.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":3,"data":{"area":"local","key":"ml-studio:theme","old":"dark","new":"dark"}}
+{"t":1,"type":"storage.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":4,"data":{"area":"local","key":"ml-studio:theme","old":"dark","new":"dark"}}
+{"t":1,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e1","seq":5,"data":{"attr":"class","value":"dark"}}
+{"t":1,"type":"perf","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":6,"data":{"metric":"cls","value":0.0007358741760253906,"at":446}}
+{"t":1,"type":"perf","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":7,"data":{"metric":"lcp","value":344,"at":344}}
+{"t":1,"type":"anim.start","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e2","seq":8,"data":{"name":"pulse"}}
+{"t":1,"type":"perf","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":9,"data":{"metric":"lcp","value":436,"at":436}}
+{"t":1,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":10,"data":{"name":"background-color","kind":"transition"}}
+{"t":2,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":11,"data":{"name":"color","kind":"transition"}}
+{"t":2,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":12,"data":{"name":"color","kind":"transition"}}
+{"t":2,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":13,"data":{"name":"color","kind":"transition"}}
+{"t":2,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e7","seq":14,"data":{"name":"color","kind":"transition"}}
+{"t":3,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":15,"data":{"name":"color","kind":"transition"}}
+{"t":3,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e9","seq":16,"data":{"name":"color","kind":"transition"}}
+{"t":3,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":17,"data":{"name":"color","kind":"transition"}}
+{"t":3,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":18,"data":{"name":"color","kind":"transition"}}
+{"t":3,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e12","seq":19,"data":{"name":"color","kind":"transition"}}
+{"t":3,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e13","seq":20,"data":{"name":"color","kind":"transition"}}
+{"t":3,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e14","seq":21,"data":{"name":"color","kind":"transition"}}
+{"t":3,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e15","seq":22,"data":{"name":"color","kind":"transition"}}
+{"t":4,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e16","seq":23,"data":{"name":"color","kind":"transition"}}
+{"t":4,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e17","seq":24,"data":{"name":"color","kind":"transition"}}
+{"t":4,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":25,"data":{"name":"background-color","kind":"transition"}}
+{"t":4,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":26,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":4,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":27,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":4,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":28,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":4,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":29,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":4,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":30,"data":{"name":"color","kind":"transition"}}
+{"t":3768,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":31,"data":{"to":"button \"Customize\"","toBody":false}}
+{"t":4600,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":32,"data":{"name":"background-color","kind":"transition"}}
+{"t":4686,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":33,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":6057,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":34,"data":{"name":"background-color","kind":"transition"}}
+{"t":6868,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":35,"data":{"name":"background-color","kind":"transition"}}
+{"t":8534,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":36,"data":{"to":"textbox \"Search\"","from":"button \"Customize\"","toBody":false}}
+{"t":9690,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":37,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":11085,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":38,"data":{"name":"background-color","kind":"transition"}}
+{"t":11085,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":39,"data":{"name":"color","kind":"transition"}}
+{"t":11128,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":40,"data":{"name":"background-color","kind":"transition"}}
+{"t":11144,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":41,"data":{"name":"color","kind":"transition"}}
+{"t":11286,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e7","seq":42,"data":{"name":"background-color","kind":"transition"}}
+{"t":11286,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e7","seq":43,"data":{"name":"color","kind":"transition"}}
+{"t":11442,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":44,"data":{"name":"background-color","kind":"transition"}}
+{"t":11442,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":45,"data":{"name":"color","kind":"transition"}}
+{"t":11529,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e14","seq":46,"data":{"name":"background-color","kind":"transition"}}
+{"t":11529,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e14","seq":47,"data":{"name":"color","kind":"transition"}}
+{"t":11565,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e7","seq":48,"data":{"name":"background-color","kind":"transition"}}
+{"t":11565,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e7","seq":49,"data":{"name":"color","kind":"transition"}}
+{"t":14690,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":50,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":18809,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":51,"data":{"from":"textbox \"Search\"","toBody":true}}
+{"t":18809,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":52,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":19696,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":53,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":21753,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":54,"data":{"hidden":false,"focused":true,"reason":"focus"}}
+{"t":21753,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":55,"data":{"to":"textbox \"Search\"","toBody":false}}
+{"t":21920,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e18","seq":56,"data":{"name":"background-color","kind":"transition"}}
+{"t":22944,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":57,"data":{"from":"textbox \"Search\"","toBody":true}}
+{"t":24696,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":58,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":29699,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":59,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":31522,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":60,"data":{"to":"button \"End\"","toBody":false}}
+{"t":31744,"type":"human.control","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":61,"data":{"kind":"end"}}
+{"t":31744,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":62,"data":{"from":"button \"End\"","toBody":true}}
+{"t":34501,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":63,"data":{"to":"button \"Minimise the panel\"","toBody":false}}
+{"t":34699,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":64,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":34718,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":65,"data":{"from":"button \"Minimise the panel\"","toBody":true}}
+{"t":36134,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":66,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":36381,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":67,"data":{"hidden":true,"focused":false,"reason":"visibilitychange"}}
+{"t":39390,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":68,"data":{"hidden":true,"focused":true,"reason":"focus"}}
+{"t":39403,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":69,"data":{"hidden":false,"focused":true,"reason":"visibilitychange"}}
+{"t":39703,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":70,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":40937,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":71,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":40952,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":72,"data":{"hidden":true,"focused":false,"reason":"visibilitychange"}}
+{"t":45357,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":73,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":51364,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":74,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":52738,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":75,"data":{"hidden":false,"focused":false,"reason":"visibilitychange"}}
+{"t":52741,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":76,"data":{"hidden":false,"focused":true,"reason":"focus"}}
+{"t":56366,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":77,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":59547,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":78,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":61370,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":79,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":66376,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":80,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":71378,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":81,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":76380,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":82,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":80667,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":83,"data":{"hidden":false,"focused":true,"reason":"focus"}}
+{"t":81380,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":84,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":82175,"type":"perf","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":85,"data":{"metric":"longtask","value":73,"at":82724}}
+{"t":82175,"type":"console.error","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":86,"data":{"message":"[hmr] Failed to reload /src/layout/AppShell.tsx. This could be due to syntax errors or importing non-existent modules. (see errors above)"}}
+{"t":82180,"type":"console.debug","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":87,"data":{"message":"[vite] hot updated: /src/layout/AppShell.tsx"}}
+{"t":82180,"type":"console.debug","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":88,"data":{"message":"[vite] hot updated: /src/index.css"}}
+{"t":86386,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":89,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":86772,"type":"console.debug","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":90,"data":{"message":"[vite] hot updated: /src/layout/AppShell.tsx"}}
+{"t":86772,"type":"console.debug","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":91,"data":{"message":"[vite] hot updated: /src/index.css"}}
+{"t":86807,"type":"dom.removed","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":92,"data":{"role":"contentinfo","name":"","region":"e19"}}
+{"t":90170,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":93,"data":{"name":"background-color","kind":"transition"}}
+{"t":90170,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":94,"data":{"name":"color","kind":"transition"}}
+{"t":90211,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":95,"data":{"name":"background-color","kind":"transition"}}
+{"t":90212,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":96,"data":{"name":"color","kind":"transition"}}
+{"t":90710,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":97,"data":{"name":"background-color","kind":"transition"}}
+{"t":90725,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":98,"data":{"name":"color","kind":"transition"}}
+{"t":90774,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":99,"data":{"name":"background-color","kind":"transition"}}
+{"t":90774,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":100,"data":{"name":"color","kind":"transition"}}
+{"t":90781,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":101,"data":{"name":"background-color","kind":"transition"}}
+{"t":90794,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":102,"data":{"name":"color","kind":"transition"}}
+{"t":90829,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e7","seq":103,"data":{"name":"background-color","kind":"transition"}}
+{"t":90835,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e7","seq":104,"data":{"name":"color","kind":"transition"}}
+{"t":90884,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":105,"data":{"name":"background-color","kind":"transition"}}
+{"t":90884,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":106,"data":{"name":"color","kind":"transition"}}
+{"t":91314,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e9","seq":107,"data":{"name":"background-color","kind":"transition"}}
+{"t":91315,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e9","seq":108,"data":{"name":"color","kind":"transition"}}
+{"t":91349,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":109,"data":{"name":"background-color","kind":"transition"}}
+{"t":91349,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":110,"data":{"name":"color","kind":"transition"}}
+{"t":91387,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":111,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":91689,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":112,"data":{"name":"background-color","kind":"transition"}}
+{"t":91689,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":113,"data":{"name":"color","kind":"transition"}}
+{"t":91759,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":114,"data":{"name":"background-color","kind":"transition"}}
+{"t":91759,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":115,"data":{"name":"color","kind":"transition"}}
+{"t":92016,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":116,"data":{"to":"link \"Model Training\"","toBody":false}}
+{"t":92221,"type":"route.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":117,"data":{"from":"http://localhost:5173/","to":"http://localhost:5173/training","pathname":"/training","search":"","hash":""}}
+{"t":92232,"type":"route.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":118,"data":{"from":"http://localhost:5173/training","to":"http://localhost:5173/upload","pathname":"/upload","search":"","hash":""}}
+{"t":92233,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":119,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":92234,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":120,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":92234,"type":"dom.text","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e20","seq":121,"data":{"text":"Model Training","old":"Dashboard"}}
+{"t":92243,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":122,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":92243,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":123,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":92243,"type":"dom.text","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e20","seq":124,"data":{"text":"Datasets","old":"Model Training"}}
+{"t":92391,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":125,"data":{"name":"background-color","kind":"transition"}}
+{"t":92391,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":126,"data":{"name":"color","kind":"transition"}}
+{"t":92391,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":127,"data":{"name":"background-color","kind":"transition"}}
+{"t":92392,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":128,"data":{"name":"color","kind":"transition"}}
+{"t":93522,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":129,"data":{"name":"background-color","kind":"transition"}}
+{"t":93522,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":130,"data":{"name":"color","kind":"transition"}}
+{"t":93898,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":131,"data":{"name":"background-color","kind":"transition"}}
+{"t":93898,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":132,"data":{"name":"color","kind":"transition"}}
+{"t":93953,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":133,"data":{"name":"background-color","kind":"transition"}}
+{"t":93953,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":134,"data":{"name":"color","kind":"transition"}}
+{"t":94463,"type":"route.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":135,"data":{"from":"http://localhost:5173/upload","to":"http://localhost:5173/training","pathname":"/training","search":"","hash":""}}
+{"t":94471,"type":"route.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":136,"data":{"from":"http://localhost:5173/training","to":"http://localhost:5173/upload","pathname":"/upload","search":"","hash":""}}
+{"t":94471,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":137,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":94471,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":138,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":94471,"type":"dom.text","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e20","seq":139,"data":{"text":"Model Training","old":"Datasets"}}
+{"t":94483,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":140,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":94484,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":141,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":94484,"type":"dom.text","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e20","seq":142,"data":{"text":"Datasets","old":"Model Training"}}
+{"t":95336,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":143,"data":{"name":"background-color","kind":"transition"}}
+{"t":95336,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":144,"data":{"name":"color","kind":"transition"}}
+{"t":95460,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e13","seq":145,"data":{"name":"background-color","kind":"transition"}}
+{"t":95460,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e13","seq":146,"data":{"name":"color","kind":"transition"}}
+{"t":95474,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":147,"data":{"name":"background-color","kind":"transition"}}
+{"t":95474,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e11","seq":148,"data":{"name":"color","kind":"transition"}}
+{"t":95564,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e12","seq":149,"data":{"name":"color","kind":"transition"}}
+{"t":95571,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e12","seq":150,"data":{"name":"background-color","kind":"transition"}}
+{"t":96224,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e21","seq":151,"data":{"name":"border-bottom-color","kind":"transition"}}
+{"t":96224,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e21","seq":152,"data":{"name":"border-left-color","kind":"transition"}}
+{"t":96224,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e21","seq":153,"data":{"name":"border-right-color","kind":"transition"}}
+{"t":96224,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e21","seq":154,"data":{"name":"border-top-color","kind":"transition"}}
+{"t":96391,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":155,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":96800,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":156,"data":{"name":"background-color","kind":"transition"}}
+{"t":96800,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":157,"data":{"name":"color","kind":"transition"}}
+{"t":97141,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":158,"data":{"name":"background-color","kind":"transition"}}
+{"t":97154,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":159,"data":{"name":"color","kind":"transition"}}
+{"t":97279,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":160,"data":{"name":"background-color","kind":"transition"}}
+{"t":97279,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":161,"data":{"name":"color","kind":"transition"}}
+{"t":97300,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":162,"data":{"name":"background-color","kind":"transition"}}
+{"t":97300,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":163,"data":{"name":"color","kind":"transition"}}
+{"t":98849,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":164,"data":{"name":"background-color","kind":"transition"}}
+{"t":98849,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e10","seq":165,"data":{"name":"color","kind":"transition"}}
+{"t":98883,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e13","seq":166,"data":{"name":"background-color","kind":"transition"}}
+{"t":98883,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e13","seq":167,"data":{"name":"color","kind":"transition"}}
+{"t":98910,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e16","seq":168,"data":{"name":"background-color","kind":"transition"}}
+{"t":98911,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e16","seq":169,"data":{"name":"color","kind":"transition"}}
+{"t":98973,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e17","seq":170,"data":{"name":"background-color","kind":"transition"}}
+{"t":98973,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e17","seq":171,"data":{"name":"color","kind":"transition"}}
+{"t":98980,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":172,"data":{"name":"background-color","kind":"transition"}}
+{"t":98981,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":173,"data":{"name":"color","kind":"transition"}}
+{"t":99830,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":174,"data":{"from":"link \"Model Training\"","toBody":true}}
+{"t":100417,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e17","seq":175,"data":{"name":"background-color","kind":"transition"}}
+{"t":100417,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e17","seq":176,"data":{"name":"color","kind":"transition"}}
+{"t":100456,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e16","seq":177,"data":{"name":"background-color","kind":"transition"}}
+{"t":100456,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e16","seq":178,"data":{"name":"color","kind":"transition"}}
+{"t":100459,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e15","seq":179,"data":{"name":"background-color","kind":"transition"}}
+{"t":100459,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e15","seq":180,"data":{"name":"color","kind":"transition"}}
+{"t":100660,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e14","seq":181,"data":{"name":"background-color","kind":"transition"}}
+{"t":100660,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e14","seq":182,"data":{"name":"color","kind":"transition"}}
+{"t":101362,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e9","seq":183,"data":{"name":"background-color","kind":"transition"}}
+{"t":101362,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e9","seq":184,"data":{"name":"color","kind":"transition"}}
+{"t":101390,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":185,"data":{"name":"background-color","kind":"transition"}}
+{"t":101392,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":186,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":101403,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e8","seq":187,"data":{"name":"color","kind":"transition"}}
+{"t":101466,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e14","seq":188,"data":{"name":"background-color","kind":"transition"}}
+{"t":101466,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e14","seq":189,"data":{"name":"color","kind":"transition"}}
+{"t":101521,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":190,"data":{"name":"background-color","kind":"transition"}}
+{"t":101522,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e5","seq":191,"data":{"name":"color","kind":"transition"}}
+{"t":101653,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":192,"data":{"name":"background-color","kind":"transition"}}
+{"t":101653,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":193,"data":{"name":"color","kind":"transition"}}
+{"t":101882,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":194,"data":{"name":"background-color","kind":"transition"}}
+{"t":101882,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e4","seq":195,"data":{"name":"color","kind":"transition"}}
+{"t":101896,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":196,"data":{"name":"background-color","kind":"transition"}}
+{"t":101897,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":197,"data":{"name":"color","kind":"transition"}}
+{"t":102198,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":198,"data":{"to":"link \"Project Overview\"","toBody":false}}
+{"t":102417,"type":"route.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":199,"data":{"from":"http://localhost:5173/upload","to":"http://localhost:5173/","pathname":"/","search":"","hash":""}}
+{"t":102426,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":200,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…"}}
+{"t":102426,"type":"dom.attr","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":201,"data":{"attr":"class","value":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors text-slate-600 dark:text-ink-muted hover…","old":"flex items-center justify-between rounded px-3 py-1.5 text-xs transition-colors bg-brand-primary font-medium text-white …"}}
+{"t":102426,"type":"dom.text","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e20","seq":202,"data":{"text":"Dashboard","old":"Datasets"}}
+{"t":102590,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":203,"data":{"name":"background-color","kind":"transition"}}
+{"t":102590,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e3","seq":204,"data":{"name":"color","kind":"transition"}}
+{"t":102590,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":205,"data":{"name":"background-color","kind":"transition"}}
+{"t":102590,"type":"anim.end","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","ref":"e6","seq":206,"data":{"name":"color","kind":"transition"}}
+{"t":105123,"type":"focus.change","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":207,"data":{"from":"link \"Project Overview\"","toBody":true}}
+{"t":106397,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":208,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":111307,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":209,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":111399,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":210,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":116402,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":211,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":121409,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":212,"data":{"hidden":false,"focused":false,"reason":"heartbeat"}}
+{"t":125222,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":213,"data":{"hidden":false,"focused":true,"reason":"focus"}}
+{"t":126414,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":214,"data":{"hidden":false,"focused":true,"reason":"heartbeat"}}
+{"t":128468,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":215,"data":{"hidden":false,"focused":false,"reason":"blur"}}
+{"t":128720,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":216,"data":{"hidden":true,"focused":false,"reason":"visibilitychange"}}
+{"t":132364,"type":"page.health","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":217,"data":{"hidden":true,"focused":false,"reason":"heartbeat"}}
+{"t":132629,"type":"console.log","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":218,"data":{"message":"[vite] server connection lost. Polling for restart..."}}
+{"t":132630,"type":"net.pending","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":219,"data":{"id":"n1","method":"GET","url":"http://localhost:5173/","initiator":"fetch","initiatorStack":"at ping (http://localhost:5173/@vite/client:736:13)"}}
+{"t":132907,"type":"net.request","sessionId":"s92fe738e-5472-48a8-bf02-c31f5dd24e11","seq":220,"data":{"id":"n1","method":"GET","url":"http://localhost:5173/","status":204,"ok":true,"durationMs":276,"initiator":"fetch","initiatorStack":"at ping (http://localhost:5173/@vite/client:736:13)","statusText":"No Content"}}
