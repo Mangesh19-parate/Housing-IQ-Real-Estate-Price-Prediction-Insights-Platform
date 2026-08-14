@@ -32,10 +32,10 @@ Use this as a living checklist. Update status honestly (Not Started / In Progres
 ### Week 3 — Feature Engineering & Selection
 | Day | Task | Status | Actual date | Notes / Result |
 |---|---|---|---|---|
-| 15 | Core engineered features (price/sqft, amenity counts, floor_ratio, age_bucket, bath_bed_ratio) | Not Started | | |
-| 16 | Top-15 amenity flags + categorical encoding | Not Started | | |
-| 17 | Leakage-safe locality aggregate features | Not Started | | |
-| 18 | Feature selection round 1: correlation, Lasso, Linear weights | Not Started | | |
+| 15 | Core engineered features (price/sqft, amenity counts, floor_ratio, age_bucket, bath_bed_ratio) | Done | 2026-08-14 | `ml/features/feature_frame.py` (Step 12). `derive_row_features` + `build_feature_frame` add 8 non-locality columns (price_per_sqft, n_amenities, n_features, floor_ratio, age_bucket_ord, bath_bed_ratio, area_per_bedroom, top_amenities_count) with NaN guards for bedrooms==0. 17 tests in `tests/test_feature_frame.py`. |
+| 16 | Top-15 amenity flags + categorical encoding | Done | 2026-08-14 | `select_top_amenities` (K=10) emits `has_<slugified>` flags resolved at fit time; ColumnTransformer pinned to 15 numeric + 4 ordinal + 4 one-hot. OrdinalEncoder/OneHotEncoder category orderings pinned by `tests/test_preprocessor.py`. |
+| 17 | Leakage-safe locality aggregate features | Done | 2026-08-14 | `LocalityAggregator` (Step 12 Phase 2): fit on `is_outlier == False` rows only; per-row leave-one-out via `(group_sum - own_value)/(group_count - 1)`. Bayesian smoother `locality_smoothed_price` with prior weight 20, city-prior fallback for unseen (city, locality). 9 tests in `tests/test_locality_aggregator.py`. |
+| 18 | Feature selection round 1: correlation, Lasso, Linear weights | Done | 2026-08-14 | Round 1 report (`scripts/build_feature_selection_report.py`) emits 6 sections to `data/processed/feature_selection_report.md`. Round 1 covers the correlation filter + base/engineered column rationale only; Round 2/3 deferred to training spec (SHAP/RF/GB/permutation require a fitted model). |
 | 19 | Feature selection round 2: RF importance, GB importance, Permutation importance | Not Started | | |
 | 20 | Feature selection round 3: SHAP ranking, RFE/RFECV, final decision | Not Started | | |
 | 21 | **Checkpoint:** final feature set + feature_selection_report.md | Not Started | | |
