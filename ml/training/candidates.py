@@ -5,12 +5,17 @@ hyperparameters (``random_state=42`` everywhere — Rules §5.4). No tuning
 happens here; tuning is a Week 8 improvement lever. ``make_estimator``
 re-instantiates a fresh estimator on every call so candidate state
 cannot leak between cross-validation folds.
+
+v2 (Spec 14) extends this with ``V2_CANDIDATE_MODELS`` and
+``make_v2_estimator(name, params=...)`` — the same five-model set
+(XGB defaults, XGB Optuna, LGBM defaults, LGBM Optuna, stacking) so
+the script can sweep the levers against a single preprocessor pipeline.
 """
 
 from __future__ import annotations
 
 import logging
-from typing import Final
+from typing import Any, Final
 
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import (
@@ -100,11 +105,124 @@ def candidate_hyperparameters(name: str) -> dict:
     return dict(make_estimator(name).get_params(deep=False))
 
 
+# ---------------------------------------------------------------------------
+# v2 candidates (Spec 14)
+# ---------------------------------------------------------------------------
+
+
+def _build_v2_candidates() -> dict[str, BaseEstimator]:
+    """Build the 5 v2 candidate estimators with sensible defaults.
+
+    Names match the order in which the training script will sweep them:
+
+        - ``xgb_v1_defaults`` — XGB with the v1 baseline defaults.
+          Reproducibility anchor (must NOT regress vs v1's xgboost row).
+        - ``xgb_optuna`` — placeholder; replaced in-place with the
+          Optuna-best params at search time (see ``make_v2_estimator``).
+        - ``lgbm_v1_defaults`` — LGBM with v1-equivalent defaults.
+        - ``lgbm_optuna`` — placeholder, same pattern as xgb_optuna.
+        - ``stacking`` — ``StackingRegressor`` with the 5 base learners
+          + Ridge meta (see ``levers/stacking.py``).
+
+    The Optuna placeholders use a 1-tree model so the pipeline can
+    ``fit`` in case the search is skipped (tests / smoke runs); the
+    real training script ALWAYS calls ``make_v2_estimator(name,
+    params=...)`` with the Optuna result before fitting.
+    """
+    from lightgbm import LGBMRegressor
+    from xgboost import XGBRegressor
+
+    return {
+        "xgb_v1_defaults": XGBRegressor(
+            n_estimators=300,
+            max_depth=6,
+            learning_rate=0.05,
+            subsample=0.8,
+            colsample_bytree=0.8,
+            tree_method="hist",
+            n_jobs=-1,
+            random_state=42,
+            verbosity=0,
+        ),
+        "xgb_optuna": XGBRegressor(
+            n_estimators=10,  # placeholder; real params injected by make_v2_estimator
+            random_state=42,
+            verbosity=0,
+        ),
+        "lgbm_v1_defaults": LGBMRegressor(
+            n_estimators=300,
+            max_depth=6,
+            learning_rate=0.05,
+            subsample=0.8,
+            colsample_bytree=0.8,
+            n_jobs=-1,
+            random_state=42,
+            verbose=-1,
+        ),
+        "lgbm_optuna": LGBMRegressor(
+            n_estimators=10,  # placeholder
+            random_state=42,
+            verbose=-1,
+        ),
+        # Stacking: real instance built lazily by make_v2_estimator so the
+        # base learners can share random_state=42 cleanly.
+        "stacking": None,  # type: ignore[dict-item]
+    }
+
+
+#: v2 candidate set (Spec 14). Built lazily so importing this module
+#: does not import the StackingRegressor (heavy import) until a caller
+#: actually asks for the stacking candidate.
+V2_CANDIDATE_MODELS: Final[dict[str, BaseEstimator | None]] = (
+    _build_v2_candidates()
+)
+
+
+def make_v2_estimator(name: str, params: dict[str, Any] | None = None) -> BaseEstimator:
+    """Return a fresh v2 estimator.
+
+    Mirrors ``make_estimator`` for the v1 set. ``params`` overrides the
+    pinned defaults — used by the script to inject Optuna-best params
+    (``{"xgb_optuna": {"max_depth": ..., "learning_rate": ...}}``) and
+    by callers that want to tweak a single hyperparameter.
+
+    For ``"stacking"`` we build a fresh ``StackingRegressor`` via the
+    lever helper (the v2 module owns the 5 base learners + Ridge meta).
+    """
+    if name not in V2_CANDIDATE_MODELS:
+        raise ValueError(
+            f"Unknown v2 candidate: {name!r}. "
+            f"Known: {sorted(V2_CANDIDATE_MODELS)}"
+        )
+    merged: dict[str, Any] = {}
+    base = V2_CANDIDATE_MODELS[name]
+    if base is not None:
+        merged.update(base.get_params(deep=False))
+    if params:
+        merged.update(params)
+    if name == "stacking":
+        from ml.training.levers.stacking import make_stacking_regressor
+
+        return make_stacking_regressor(random_state=42)
+    # Clone from the canonical constructor for the non-stacking names.
+    if name in ("xgb_v1_defaults", "xgb_optuna"):
+        from xgboost import XGBRegressor
+
+        return XGBRegressor(**merged)
+    if name in ("lgbm_v1_defaults", "lgbm_optuna"):
+        from lightgbm import LGBMRegressor
+
+        return LGBMRegressor(**merged)
+    raise ValueError(f"make_v2_estimator: unhandled name {name!r}")
+
+
 __all__ = [
     "CANDIDATE_MODELS",
     "PRICE_MODEL_VERSION",
     "RENT_MIN_ROWS",
     "SHAP_EXPLAINER_VERSION",
+    "V2_CANDIDATE_MODELS",
     "candidate_hyperparameters",
     "make_estimator",
+    "make_v2_estimator",
 ]

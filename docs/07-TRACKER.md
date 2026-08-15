@@ -36,9 +36,9 @@ Use this as a living checklist. Update status honestly (Not Started / In Progres
 | 16 | Top-15 amenity flags + categorical encoding | Done | 2026-08-14 | `select_top_amenities` (K=10) emits `has_<slugified>` flags resolved at fit time; ColumnTransformer pinned to 15 numeric + 4 ordinal + 4 one-hot. OrdinalEncoder/OneHotEncoder category orderings pinned by `tests/test_preprocessor.py`. |
 | 17 | Leakage-safe locality aggregate features | Done | 2026-08-14 | `LocalityAggregator` (Step 12 Phase 2): fit on `is_outlier == False` rows only; per-row leave-one-out via `(group_sum - own_value)/(group_count - 1)`. Bayesian smoother `locality_smoothed_price` with prior weight 20, city-prior fallback for unseen (city, locality). 9 tests in `tests/test_locality_aggregator.py`. |
 | 18 | Feature selection round 1: correlation, Lasso, Linear weights | Done | 2026-08-14 | Round 1 report (`scripts/build_feature_selection_report.py`) emits 6 sections to `data/processed/feature_selection_report.md`. Round 1 covers the correlation filter + base/engineered column rationale only; Round 2/3 deferred to training spec (SHAP/RF/GB/permutation require a fitted model). |
-| 19 | Feature selection round 2: RF importance, GB importance, Permutation importance | Not Started | | |
-| 20 | Feature selection round 3: SHAP ranking, RFE/RFECV, final decision | Not Started | | |
-| 21 | **Checkpoint:** final feature set + feature_selection_report.md | Not Started | | |
+| 19 | Feature selection round 2: RF importance, GB importance, Permutation importance | Done | 2026-08-15 | `append_round_2_3` (Spec 13). RF/GB/XGB impurity tables + permutation importance on validation slice. `tests/test_report.py` pins file contract. |
+| 20 | Feature selection round 3: SHAP ranking, RFE/RFECV, final decision | Done | 2026-08-15 | SHAP TreeExplainer on the tree-model winner; consensus cross-method ranking rendered into `data/processed/feature_selection_report.md`. |
+| 21 | **Checkpoint:** final feature set + feature_selection_report.md | Not Started | | Awaiting Day 26 (final model selection) to fully close. |
 
 ### Week 4 — Model Selection & Productionization
 | Day | Task | Status | Actual date | Notes / Result |
@@ -50,6 +50,16 @@ Use this as a living checklist. Update status honestly (Not Started / In Progres
 | 26 | Pipeline wrap + serialize (price_model_v1.pkl) | Not Started | | |
 | 27 | FastAPI /predict route + schemas + smoke test | Not Started | | |
 | 28 | **Checkpoint:** working /predict endpoint + metrics_v1.json | Not Started | | |
+
+### Spec 14 — v2 Boosted-Tree Improvement Levers (overlap with Week 4)
+| Day | Task | Status | Actual date | Notes / Result |
+|---|---|---|---|---|
+| 14-S1 | Lever sub-package: geo, target encoding, stacking, Optuna | Done | 2026-08-15 | `ml/training/levers/{__init__,geospatial,target_encoding,stacking,optuna_search}.py`. 21 tests in `tests/test_{geospatial,target_encoding,stacking,optuna_search}.py` — all green. |
+| 14-S2 | Extend v1 modules for v2 metrics (eval / persistence / report / `__init__`) | Done | 2026-08-15 | `vs_v1_metrics`, `improvement_target_met`, `IMPROVEMENT_TARGET_PCT=32.5`, `load_metrics`, `write_v2_lever_section`, `PRICE_MODEL_VERSION_V2`, `make_v2_estimator` re-exported from `ml.training`. Full v1 suite (379 tests) still passes. |
+| 14-S3 | v2 candidate factory (5 names) | Done | 2026-08-15 | `V2_CANDIDATE_MODELS = {xgb_v1_defaults, xgb_optuna, lgbm_v1_defaults, lgbm_optuna, stacking}`; `make_v2_estimator(name, params=...)` for Optuna injection. 7 tests in `tests/test_candidates_v2.py`. |
+| 14-S4 | `scripts/train_price_model_v2.py` + pipeline wiring | Done | 2026-08-15 | End-to-end script; 12-step structure mirrors Spec 13. Preprocessor NEVER refit (Rules §2.4) — geo + sector columns appended post-transform via `_V2PreprocAdapter`. Optuna 40 trials × 2 (XGB+LGBM), 10-min cap. Honest shortfall logging (Rules §9.2). Registered in `scripts/run_pipeline.py`. |
+| 14-S5 | Lint clean + tests green | Done | 2026-08-15 | `ruff check` clean across all v2 files; 30/30 v2 tests pass; 379/379 full suite passes. |
+| 14-S6 | Run end-to-end against real data, compare to v1 | Not Started | | Requires populated `clean_listings.parquet` + Step 12 artifacts on a non-empty checkout. |
 
 ### Week 5 — Recommender & Insights
 | Day | Task | Status | Actual date | Notes / Result |
