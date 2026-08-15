@@ -26,6 +26,12 @@ import joblib
 
 logger = logging.getLogger(__name__)
 
+#: v1 baseline version (Rules §2.5). Pinned at module level — a future
+#: retrain bumps to ``"v2"``; old artifacts are never overwritten in place.
+PRICE_MODEL_VERSION_V1: str = "v1"
+#: v2 boosted-tree version (Spec 14).
+PRICE_MODEL_VERSION_V2: str = "v2"
+
 #: Output directory for ``price_model_*.pkl`` and ``metrics_*.json``.
 #: Override at test time via the ``HOUSINGIQ_ARTIFACT_DIR`` env var.
 ARTIFACT_DIR: Path = Path(os.environ.get("HOUSINGIQ_ARTIFACT_DIR", "models"))
@@ -58,7 +64,7 @@ MODEL_REGISTRY_FIELDS: tuple[str, ...] = (
 def save_price_model(
     pipeline,
     transact_type: str,
-    version: str = "v1",
+    version: str = PRICE_MODEL_VERSION_V1,
     artifact_dir: Path | str | None = None,
 ) -> Path:
     """Joblib-dump ``pipeline`` to ``price_model_{transact}_v{n}.pkl``.
@@ -77,7 +83,7 @@ def save_price_model(
 
 def save_metrics(
     payload: dict,
-    version: str = "v1",
+    version: str = PRICE_MODEL_VERSION_V1,
     artifact_dir: Path | str | None = None,
 ) -> Path:
     """JSON-dump ``payload`` to ``metrics_v{n}.json`` with deterministic key order.
@@ -138,11 +144,37 @@ def append_model_registry(
     return True
 
 
+def load_metrics(
+    version: str = PRICE_MODEL_VERSION_V1,
+    artifact_dir: Path | str | None = None,
+) -> dict:
+    """Read a previously-written ``metrics_{version}.json`` back as a dict.
+
+    Used by ``vs_v1_metrics`` (Spec 14) to compare the v2 winner against
+    the v1 baseline numbers that were written by the Step 13 script.
+    Returns an empty dict when the file is missing — the caller decides
+    whether to surface this as a WARNING (the v1 metrics may legitimately
+    not exist on a fresh checkout).
+    """
+    out_dir = Path(artifact_dir) if artifact_dir is not None else ARTIFACT_DIR
+    path = out_dir / f"metrics_{version}.json"
+    if not path.exists():
+        logger.warning(
+            "load_metrics: no metrics file at %s — returning {{}}.", path
+        )
+        return {}
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
 __all__ = [
     "ARTIFACT_DIR",
     "MODEL_REGISTRY_FIELDS",
+    "PRICE_MODEL_VERSION_V1",
+    "PRICE_MODEL_VERSION_V2",
     "REGISTRY_CSV_PATH",
     "append_model_registry",
+    "load_metrics",
     "save_metrics",
     "save_price_model",
 ]

@@ -27,9 +27,11 @@ from ml.cleaning import (  # noqa: E402
     facet_decoders,  # noqa: F401  (Step 04 decoders; Step 05 wires per-row)
     pipeline as _clean_pipeline,  # noqa: F401  (Step 07 impute + Parquet writer orchestrator)
 )
+# ruff: noqa: I001
 from scripts import (  # noqa: E402,F401  (parse_check is a placeholder; Step 04 wires the real run)
     ingest_raw,
     parse_check,
+    train_price_model_v2,
 )
 
 

@@ -11,6 +11,8 @@ scikit-learn==1.5.1
 xgboost==2.1.0
 lightgbm==4.5.0
 shap==0.46.0
+optuna==4.9.0                  # Bayesian hyperparameter search for Lever 2
+                                # (literature S8); used by scripts/train_price_model_v2.py
 matplotlib==3.9.1
 seaborn==0.13.2
 ydata-profiling==4.9.0
