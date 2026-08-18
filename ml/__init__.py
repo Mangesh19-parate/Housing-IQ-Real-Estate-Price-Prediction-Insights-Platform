@@ -5,7 +5,9 @@ Sub-packages:
     - features       (schema mapping, fit_preprocessor, persistence, split)
     - training       (regression + classification training scripts)
     - evaluation     (Spec 15 — fixed protocol gate, see ml.evaluation)
+    - explainability (Spec 16 — SHAP explainer + per-prediction helper)
     - recommender    (TF-IDF + NearestNeighbors index)
 """
 
 from ml import evaluation  # noqa: F401  (Spec 15 — fixed evaluation gate)
+from ml import explainability  # noqa: F401  (Spec 16 — SHAP explainability layer)
