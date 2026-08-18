@@ -4,6 +4,7 @@ Each pipeline stage is wired in by the spec that owns it. Current stages:
 
 - ingest_raw  (Step 02 — raw data ingestion and schema inventory)
 - facet_decoders / canonical_mapping (Steps 04 / 05 — schema mapping)
+- evaluate_price_model  (Spec 15 — gate; non-fatal, surfaced in summary)
 - (cleaning, EDA, training, etc. — added by later specs)
 """
 
@@ -29,6 +30,7 @@ from ml.cleaning import (  # noqa: E402
 )
 # ruff: noqa: I001
 from scripts import (  # noqa: E402,F401  (parse_check is a placeholder; Step 04 wires the real run)
+    evaluate_price_model,
     ingest_raw,
     parse_check,
     train_price_model_v2,
@@ -40,6 +42,12 @@ def main() -> None:
     if rc != 0:
         sys.exit(rc)
     print("ingest done — see data/processed/raw_inventory.json")
+
+    # Spec 15 gate — non-fatal. A FAIL surfaces in the summary so a
+    # reviewer can re-train, but the pipeline keeps moving.
+    gate_rc = evaluate_price_model.main()
+    status = "PASS" if gate_rc == 0 else "FAIL"
+    print(f"protocol gate: {status} (rc={gate_rc})")
 
 
 if __name__ == "__main__":
