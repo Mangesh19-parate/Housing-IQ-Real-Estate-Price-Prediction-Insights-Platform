@@ -202,7 +202,7 @@ pytest -s
 | `POST /recommend` (Flask → calls FastAPI `POST /recommend`) | Stub |
 | `GET /insights` | Stub — standalone Insights page (also surfaced inline after a prediction) |
 | `GET /map` | Stub — map-based property explorer (Leaflet) |
-| `POST /predict` (FastAPI) | Stub — see contract in `05-BACKEND-SCHEMA.md` §7 |
+| `POST /predict` (FastAPI) | Implemented (Spec 17) — v2 `_SerializableV2Pipeline` + precomputed SHAP explainer, server-derived luxury category, parameterized `prediction_log` insert |
 | `POST /classify` (FastAPI) | Stub |
 | `POST /recommend` (FastAPI) | Stub |
 | `GET /insights` (FastAPI) | Stub |

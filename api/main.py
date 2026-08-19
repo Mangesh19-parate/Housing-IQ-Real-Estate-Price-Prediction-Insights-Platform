@@ -3,30 +3,48 @@
 Per CLAUDE.md: this service is what Flask talks to over HTTP. No Jinja, no
 template rendering here. Pages belong in ``app/``.
 
-Step 01 (foundation) exposes only ``GET /health``. Later specs wire the
-predict / classify / analytics / recommend / insights routers under
-``api/routers/`` — they're included below as empty modules so the package
-imports cleanly today.
+The lifespan context manager replaces the deprecated ``@app.on_event``
+decorator (per the ``fastapi-serving`` skill): it runs ``init_db()``
+to ensure the four operational tables exist, then warms up the price
+prediction service so the first ``POST /predict`` doesn't pay the
+load-from-disk cost.
 """
 
 from __future__ import annotations
 
+import logging
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 
 from api.routers import analytics, classify, insights, predict, recommend
+from api.routers.predict import get_predict_service
 from app.database.db import init_db
+
+logger = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
+    """FastAPI startup/shutdown handler.
+
+    Startup: ``init_db()`` + ``get_predict_service().warmup()``.
+    Shutdown: nothing to release (joblib-loaded artifacts are
+    process-local; OS reclaims them on exit).
+    """
+    init_db()
+    get_predict_service().warmup()
+    logger.info("FastAPI startup complete — predict service warmed")
+    yield
+
 
 app = FastAPI(
     title="HousingIQ Inference",
     version="0.0.1",
     description="Internal model-serving microservice. Flask calls this over HTTP.",
+    lifespan=lifespan,
 )
-
-
-@app.on_event("startup")
-def _on_startup() -> None:
-    """Ensure the 4 operational tables exist before serving any request."""
-    init_db()
 
 
 @app.get("/health")
@@ -35,9 +53,7 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-# Include the (still-stub) routers — they become real in later specs.
-# ``prefix`` is empty here so each router owns its full URL space; later specs
-# may add prefixes like ``/api/v1`` if needed.
+# Include the routers — ``prefix`` is empty so each router owns its full URL space.
 app.include_router(predict.router)
 app.include_router(classify.router)
 app.include_router(analytics.router)
