@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+{% block title %}HousingIQ — Predict Price{% endblock %}
+
+{% block extra_styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="predict-page">
+  <h1>Predict Price</h1>
+  <p class="lede">16 fields, one form. We'll tell you what your home is worth.</p>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flash" role="alert">
+        {% for category, message in messages %}
+          <li class="flash__item flash__item--{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form method="post" action="{{ url_for('predict_post') }}" class="predict-form">
+    <fieldset class="form-step">
+      <legend>Step 1 — Location &amp; Deal Type</legend>
+      <label class="field">
+        <span class="field__label">City</span>
+        <select name="city" id="city" required>
+          {% for c in cities %}
+            <option value="{{ c }}">{{ c }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="field">
+        <span class="field__label">Sector / Locality</span>
+        <select name="sector" id="sector" required>
+          <option value="">Select city first…</option>
+        </select>
+      </label>
+      <label class="field">
+        <span class="field__label">Property Type</span>
+        <select name="property_type" required>
+          {% for v in enum_options.property_types %}
+            <option value="{{ v }}">{{ v }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <fieldset class="transact-type">
+        <legend>Transaction Type</legend>
+        {% for v in enum_options.transact_types %}
+          <label class="radio">
+            <input type="radio" name="transact_type" value="{{ v }}"
+                   {% if v == "Sale" %}checked{% endif %} required>
+            <span>{{ v }}</span>
+          </label>
+        {% endfor %}
+      </fieldset>
+    </fieldset>
+
+    <fieldset class="form-step">
+      <legend>Step 2 — Core Structure</legend>
+      <label class="field">
+        <span class="field__label">Bedrooms</span>
+        <input type="number" name="bedRoom" min="1" max="15" required>
+      </label>
+      <label class="field">
+        <span class="field__label">Bathrooms</span>
+        <input type="number" name="bathroom" min="1" max="15" required>
+      </label>
+      <label class="field">
+        <span class="field__label">Balconies</span>
+        <select name="balcony" required>
+          {% for v in enum_options.balconies %}
+            <option value="{{ v }}">{{ v }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="field">
+        <span class="field__label">Built-up Area (sqft)</span>
+        <input type="number" name="built_up_area" min="1" max="20000" step="any" required>
+      </label>
+    </fieldset>
+
+    <fieldset class="form-step">
+      <legend>Step 3 — Details</legend>
+      <label class="field">
+        <span class="field__label">Property Age</span>
+        <select name="agePossession" required>
+          {% for v in enum_options.age_possessions %}
+            <option value="{{ v }}">{{ v }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="field">
+        <span class="field__label">Furnishing</span>
+        <select name="furnishing_type" required>
+          {% for v in enum_options.furnishing_types %}
+            <option value="{{ v }}">{{ v }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="field">
+        <span class="field__label">Facing</span>
+        <select name="facing" required>
+          {% for v in enum_options.facing_directions %}
+            <option value="{{ v }}">{{ v }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="field">
+        <span class="field__label">Floor Category</span>
+        <select name="floor_category" required>
+          {% for v in enum_options.floor_categories %}
+            <option value="{{ v }}">{{ v }}</option>
+          {% endfor %}
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset class="form-step">
+      <legend>Step 4 — Extras</legend>
+      <div class="checkbox-row">
+        <label class="checkbox">
+          <input type="checkbox" name="servant_room" value="1">
+          <span>Servant Room</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="store_room" value="1">
+          <span>Store Room</span>
+        </label>
+      </div>
+      <fieldset class="luxury-checklist">
+        <legend>Finish level (auto-derives Luxury Category)</legend>
+        <div class="checkbox-row">
+          <label class="checkbox">
+            <input type="checkbox" name="luxury_finish" value="branded_developer">
+            <span>Branded developer</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="luxury_finish" value="imported_fittings">
+            <span>Imported fittings</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="luxury_finish" value="clubhouse_access">
+            <span>Clubhouse access</span>
+          </label>
+        </div>
+      </fieldset>
+    </fieldset>
+
+    <details class="form-step form-step--optional">
+      <summary>Step 5 — Add amenities (optional)</summary>
+      <div class="checkbox-grid">
+        <label class="checkbox">
+          <input type="checkbox" name="amenities" value="Swimming Pool">
+          <span>Swimming Pool</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="amenities" value="Gym">
+          <span>Gym</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="amenities" value="Club house">
+          <span>Clubhouse</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="amenities" value="Power Backup">
+          <span>Power Backup</span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="amenities" value="Lift">
+          <span>Lift</span>
+        </label>
+      </div>
+    </details>
+
+    <button type="submit" class="predict-form__submit">Predict Price</button>
+  </form>
+</section>
+
+<script>
+  // Dependent dropdown: locality options switch when city changes.
+  // Tiny inline script — no build step (CLAUDE.md tech constraint).
+  (function () {
+    var citySel = document.getElementById("city");
+    var sectorSel = document.getElementById("sector");
+    var data = {{ localities_by_city | tojson }};
+    function refresh() {
+      var city = citySel.value;
+      var list = data[city] || [];
+      sectorSel.innerHTML = "";
+      var placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = list.length ? "Select locality…" : "No localities";
+      sectorSel.appendChild(placeholder);
+      list.forEach(function (name) {
+        var opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        sectorSel.appendChild(opt);
+      });
+    }
+    citySel.addEventListener("change", refresh);
+    refresh();
+  })();
+</script>
+{% endblock %}

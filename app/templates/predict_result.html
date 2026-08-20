@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}HousingIQ — Prediction Result{% endblock %}
+
+{% block extra_styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="predict-result">
+  {% if unavailable %}
+    <div class="empty-state" role="alert">
+      <h2>Prediction service is temporarily unavailable</h2>
+      <p>Please try again in a moment.</p>
+      <p><a href="{{ url_for('predict_get') }}">← Back to the form</a></p>
+    </div>
+  {% else %}
+    {% if response.is_outlier_input %}
+      <div class="confidence-banner" role="status">
+        <strong>Low confidence</strong> — input is outside the typical range for this locality.
+      </div>
+    {% endif %}
+
+    <section class="price-hero">
+      <div class="price-hero__amount">{{ response.predicted_price | inr_format(transact_type=transact_type) }}</div>
+      <div class="price-hero__range">
+        ({{ response.range_low | inr_format(transact_type=transact_type) }} —
+         {{ response.range_high | inr_format(transact_type=transact_type) }})
+      </div>
+      <div class="price-hero__summary">
+        {{ bedRoom }} BHK · {{ built_up_area }} sqft · {{ sector }}, {{ city }}
+      </div>
+      <div class="price-hero__meta">
+        model: {{ response.model_version }} ·
+        luxury: {{ response.luxury_category.value }}
+      </div>
+    </section>
+
+    <section class="why-this-price">
+      <h2>Why this price?</h2>
+      <div class="chart-placeholder" aria-label="SHAP explanation chart placeholder">
+        SHAP explanation goes here in a follow-on spec.
+      </div>
+    </section>
+
+    <a class="cta-recommend" href="{{ url_for('recommend') }}">
+      See similar properties →
+    </a>
+  {% endif %}
+</section>
+{% endblock %}

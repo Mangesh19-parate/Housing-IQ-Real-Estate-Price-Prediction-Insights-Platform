@@ -5,10 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}HousingIQ{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_styles %}{% endblock %}
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="{{ url_for('landing') }}">HousingIQ</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="{{ url_for('predict_get') }}">Predict</a>
+      <a href="{{ url_for('analytics') }}">Analytics</a>
+      <a href="{{ url_for('recommend') }}">Recommender</a>
+      <a href="{{ url_for('insights') }}">Insights</a>
+      <a href="{{ url_for('map_explorer') }}">Map</a>
+    </nav>
   </header>
   <main class="site-main">
     {% block content %}{% endblock %}
