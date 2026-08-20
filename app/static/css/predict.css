@@ -1,0 +1,162 @@
+/* Predict form — layout-only rules.
+ * Colors/spacing/typography come from style.css (:root tokens).
+ * No hardcoded hex/pixel magic numbers here.
+ */
+
+.predict-page h1 { margin-top: 0; }
+
+.predict-form {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.form-step {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin: 0;
+}
+
+.form-step legend {
+  font-weight: 600;
+  padding: 0 var(--space-2);
+}
+
+.form-step--optional summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-step .field,
+.form-step .checkbox,
+.form-step .radio {
+  display: grid;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.form-step .checkbox,
+.form-step .radio {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.checkbox-row,
+.checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.transact-type,
+.luxury-checklist {
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.transact-type legend,
+.luxury-checklist legend {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.predict-form__submit {
+  background: var(--color-cta-bg);
+  color: var(--color-cta-fg);
+  border: 0;
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  position: sticky;
+  bottom: var(--space-3);
+}
+
+.flash {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-3);
+}
+
+.flash__item--error {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-fg);
+  padding: var(--space-2);
+  border-radius: var(--radius);
+}
+
+/* Result page */
+.price-hero {
+  text-align: center;
+  padding: var(--space-4) var(--space-3);
+}
+
+.price-hero__amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.price-hero__range {
+  color: var(--color-muted);
+  margin-top: var(--space-1);
+}
+
+.price-hero__summary {
+  margin-top: var(--space-3);
+  font-weight: 500;
+}
+
+.price-hero__meta {
+  margin-top: var(--space-1);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.confidence-banner {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-fg);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-3);
+}
+
+.chart-placeholder {
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.cta-recommend {
+  display: inline-block;
+  margin-top: var(--space-3);
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-4);
+  color: var(--color-muted);
+}
+
+/* Desktop → 2-column grid for the longer steps */
+@media (min-width: 720px) {
+  .form-step:has(> .field:nth-child(3)) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2) var(--space-3);
+  }
+}

@@ -21,10 +21,10 @@
   <h2 class="section-title">Modules</h2>
   <div class="module-grid">
     {% for endpoint, label in modules %}
-      <article class="module-card" data-endpoint="{{ endpoint }}">
+      <a class="module-card" data-endpoint="{{ endpoint }}" href="{{ url_for(endpoint) }}">
         <span class="module-card__title">{{ label }}</span>
         <small class="module-card__hint">coming soon</small>
-      </article>
+      </a>
     {% endfor %}
   </div>
 </section>

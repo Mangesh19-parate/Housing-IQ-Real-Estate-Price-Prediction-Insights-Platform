@@ -7,6 +7,10 @@
   --color-accent: hsl(210, 90%, 50%);
   --color-card-bg: hsl(0, 0%, 100%);
   --color-border: hsl(220, 15%, 88%);
+  --color-warning-bg: hsl(45, 100%, 92%);
+  --color-warning-fg: hsl(30, 90%, 25%);
+  --color-cta-bg: hsl(210, 90%, 50%);
+  --color-cta-fg: hsl(0, 0%, 100%);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
