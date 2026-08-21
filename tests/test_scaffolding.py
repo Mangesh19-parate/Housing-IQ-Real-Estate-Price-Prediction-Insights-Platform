@@ -37,11 +37,15 @@ def test_flask_landing_extends_base():
     assert text.lstrip().startswith('{% extends "base.html" %}')
 
 
-# 4. FastAPI /health returns 200 + {"status": "ok"} — spec DoD §1 test 5.
+# 4. FastAPI /health returns 200 + status — spec DoD §1 test 5.
+# Spec 20 added ``model_version`` to the response; the contract now is
+# ``status == "ok"`` (must equal the literal) plus any Spec 20+ extras.
 def test_fastapi_health(api_client):
     resp = api_client.get("/health")
     assert resp.status_code == 200
-    assert resp.json() == {"status": "ok"}
+    body = resp.json()
+    assert body["status"] == "ok"
+    assert "model_version" in body
 
 
 # 5. init_db creates all 4 tables — spec DoD §1 test 6.

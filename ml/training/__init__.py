@@ -60,6 +60,13 @@ from ml.training.report import (
     write_v2_lever_section,
 )
 from ml.training.selection import select_winner
+from ml.registry import (  # noqa: E402  -- Spec 20 registry helpers
+    artifact_path,
+    compute_feature_hash,
+    get_active,
+    next_version,
+    register_model,
+)
 
 __all__ = [
     # candidates
@@ -112,4 +119,10 @@ __all__ = [
     "make_stacking_regressor",
     "optuna_search_lgbm",
     "optuna_search_xgb",
+    # registry (Spec 20)
+    "artifact_path",
+    "compute_feature_hash",
+    "get_active",
+    "next_version",
+    "register_model",
 ]

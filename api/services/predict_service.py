@@ -110,10 +110,13 @@ class PredictService:
         self,
         models_dir: Path | str,
         *,
-        model_version: str = MODEL_VERSION,
+        model_version: str | None = None,
     ) -> None:
         self.models_dir = Path(models_dir)
-        self.model_version = model_version
+        # ``None`` keeps the historical default (Spec 17) — the lifespan
+        # startup (Spec 20) passes the active version it read from the
+        # registry so the constructed instance is tied to the live row.
+        self.model_version = model_version if model_version is not None else MODEL_VERSION
         self._cache: dict[
             tuple[str, str],
             tuple[Any, shap.TreeExplainer, dict[str, str], float, np.ndarray],

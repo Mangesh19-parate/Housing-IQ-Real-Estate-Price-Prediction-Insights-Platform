@@ -36,7 +36,6 @@ Prerequisites:
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import logging
 import os
@@ -88,6 +87,7 @@ from ml.training.persistence import (  # noqa: E402
     save_metrics,
     save_price_model,
 )
+from ml.training import compute_feature_hash, register_model  # noqa: E402  Spec 20
 from ml.training.report import (  # noqa: E402
     DEFAULT_REPORT_PATH,
     write_v2_lever_section,
@@ -315,7 +315,7 @@ def _train_one_transact_type(
         feature_frame_template=feat.copy(),
         estimator=winner_est,
     )
-    save_price_model(
+    artifact_path = save_price_model(
         artifact_pipe,
         transact_type=_detect_transact_type(sub),
         version=PRICE_MODEL_VERSION_V2,
@@ -326,6 +326,7 @@ def _train_one_transact_type(
         "chosen_model": winner_name,
         "chosen_metrics": candidate_results[winner_name],
         "optuna_results": optuna_results,
+        "artifact_path": str(artifact_path),
     }
 
 
@@ -503,25 +504,46 @@ def main() -> int:
         last_lever_results = result["optuna_results"]
 
         test_metrics = result["chosen_metrics"]["test"]
+        training_dt = datetime.now(timezone.utc)
+        feature_hash = compute_feature_hash(feat.columns)
         append_model_registry(
             {
                 "model_name": f"price_model_{ttype.lower()}",
                 "version": PRICE_MODEL_VERSION_V2,
                 "training_dataset_version": "clean_listings.parquet",
                 "git_commit": git_sha,
-                "training_date": datetime.now(timezone.utc).isoformat(),
+                "training_date": training_dt.isoformat(),
                 "rmse": test_metrics["rmse"],
                 "mae": test_metrics["mae"],
                 "r2": test_metrics["r2"],
                 "hyperparameters": json.dumps(
                     {"chosen_model": winner_name}, default=str
                 ),
-                "feature_hash": hashlib.sha1(
-                    "".join(feat.columns).encode()
-                ).hexdigest()[:16],
+                "feature_hash": feature_hash,
             },
             csv_path=args.registry_csv,
         )
+
+        # Spec 20: also write to the SQLite registry so the FastAPI
+        # loader can resolve the active version + artifact path at
+        # startup. Idempotent on (model_name, version); safe to re-run.
+        artifact_path = result.get("artifact_path")
+        if artifact_path is not None:
+            register_model(
+                model_name=f"price_model_{ttype.lower()}",
+                version=PRICE_MODEL_VERSION_V2,
+                training_dataset_version="clean_listings.parquet",
+                git_commit=git_sha,
+                training_date=training_dt,
+                artifact_path=str(artifact_path),
+                hyperparameters={"chosen_model": winner_name},
+                feature_hash=feature_hash,
+                metrics={
+                    "rmse": test_metrics.get("rmse"),
+                    "mae": test_metrics.get("mae"),
+                    "r2": test_metrics.get("r2"),
+                },
+            )
 
     payload["levers"] = {
         "stacking": {},
