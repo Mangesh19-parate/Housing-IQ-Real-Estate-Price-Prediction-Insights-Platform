@@ -6,6 +6,10 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
 {% endblock %}
 
+{% block extra_scripts %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+{% endblock %}
+
 {% block content %}
 <section class="predict-result">
   {% if unavailable %}
@@ -38,9 +42,29 @@
 
     <section class="why-this-price">
       <h2>Why this price?</h2>
-      <div class="chart-placeholder" aria-label="SHAP explanation chart placeholder">
-        SHAP explanation goes here in a follow-on spec.
-      </div>
+      {% if shap_rows %}
+        <p class="why-this-price__summary">
+          <strong>{{ shap_summary.up }}</strong> factor{{ "s" if shap_summary.up != 1 else "" }} pushed the price up,
+          <strong>{{ shap_summary.down }}</strong> pushed it down.
+        </p>
+        <canvas id="shap-chart"
+                role="img"
+                aria-label="Top {{ shap_rows|length }} SHAP feature contributions for this prediction: {{ shap_rows|map(attribute='label')|join(', ') }}."
+                data-rows="{{ shap_rows|tojson }}"></canvas>
+        <ul class="shap-text-list" hidden>
+          {% for row in shap_rows %}
+            <li>
+              {% if row.direction == 'up' %}+{% elif row.direction == 'down' %}&minus;{% else %}&plusmn;{% endif %}
+              {{ row.label }}
+              {% if row.direction != 'neutral' %}
+                ({{ (row.pct * 100)|round(1) }}%)
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="empty-state__inline">No contribution breakdown available for this prediction.</p>
+      {% endif %}
     </section>
 
     <a class="cta-recommend" href="{{ url_for('recommend') }}">
@@ -48,4 +72,65 @@
     </a>
   {% endif %}
 </section>
+
+<script>
+  // Spec 19 — render the SHAP bar chart from the canvas data-rows
+  // JSON. Chart.js is loaded via CDN (defer) in base.html. Tiny
+  // inline script keeps with the no-build convention.
+  (function () {
+    var canvas = document.getElementById("shap-chart");
+    if (!canvas || typeof Chart === "undefined") return;
+    var rows;
+    try {
+      rows = JSON.parse(canvas.getAttribute("data-rows") || "[]");
+    } catch (e) {
+      return;
+    }
+    if (!rows.length) return;
+    var labels = rows.map(function (r) { return r.label; });
+    var values = rows.map(function (r) { return r.pct; });
+    var colors = rows.map(function (r) {
+      if (r.direction === "down") return "hsl(0, 70%, 50%)";
+      if (r.direction === "neutral") return "hsl(220, 15%, 70%)";
+      return "hsl(140, 60%, 40%)";
+    });
+    var glyph = rows.map(function (r) {
+      if (r.direction === "down") return "−";
+      if (r.direction === "neutral") return "±";
+      return "+";
+    });
+    new Chart(canvas, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [{
+          data: values,
+          backgroundColor: colors,
+          borderWidth: 0
+        }]
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (ctx) {
+                var r = rows[ctx.dataIndex];
+                return glyph[ctx.dataIndex] + " " + r.label
+                  + " (" + (r.pct * 100).toFixed(1) + "%)";
+              }
+            }
+          }
+        },
+        scales: {
+          x: { min: -1, max: 1, ticks: { display: false }, grid: { display: false } },
+          y: { grid: { display: false } }
+        }
+      }
+    });
+  })();
+</script>
 {% endblock %}

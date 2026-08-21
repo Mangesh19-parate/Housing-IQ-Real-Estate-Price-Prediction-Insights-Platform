@@ -194,11 +194,44 @@ def test_predict_post_passes_transact_type_to_fastapi(client):
 
 
 def test_predict_post_does_not_import_ml_or_models(client):
-    """Rules §5.1: Flask never imports model code."""
-    import sys
-    forbidden = [m for m in sys.modules if m.startswith("ml.")
-                 or m.startswith("models.")]
-    assert forbidden == [], f"forbidden modules imported: {forbidden}"
+    """Rules §5.1: Flask never imports model code.
+
+    Pinned via AST inspection of Flask's actual source files (not
+    ``sys.modules`` — pytest's collection already pulls ``ml.*``
+    in for unrelated tests, which would give a false positive).
+    The display-only ``ml.explainability.labels`` label map is
+    explicitly allowlisted (Spec 19): it's used for human-readable
+    feature naming on the SHAP chart, not for model code.
+    """
+    import ast
+    from pathlib import Path
+
+    repo = Path(__file__).parent.parent
+    flask_files = [
+        repo / "app" / "app.py",
+        repo / "app" / "services" / "fastapi_client.py",
+        repo / "app" / "services" / "inr_format.py",
+        repo / "app" / "services" / "shap_format.py",
+    ]
+    allowed = {"ml.explainability.labels"}
+    forbidden: list[str] = []
+    for path in flask_files:
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    if alias.name not in allowed and (
+                        alias.name.startswith("ml.")
+                        or alias.name.split(".")[0] == "models"
+                    ):
+                        forbidden.append(f"{path.name}: {alias.name}")
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                if node.module not in allowed and (
+                    node.module.startswith("ml.")
+                    or node.module.split(".")[0] == "models"
+                ):
+                    forbidden.append(f"{path.name}: {node.module}")
+    assert forbidden == [], f"Flask imports forbidden modules: {forbidden}"
 
 
 # ---------- Shape of response ----------
@@ -227,3 +260,123 @@ def test_predict_result_template_formats_currency_with_rent(client, monkeypatch)
     html = resp.get_data(as_text=True)
     # Rent formatting uses Indian comma grouping + " / month".
     assert "/ month" in html
+
+
+# ---------- Spec 19 — SHAP bar chart on the result page ----------
+
+
+def _shap_response(*, contributions: list[tuple[str, float]]) -> PredictResponseV3:
+    """Build a canned PredictResponseV3 with the given SHAP features."""
+    return PredictResponseV3(
+        predicted_price=14200000.0,
+        range_low=12800000.0,
+        range_high=15600000.0,
+        shap_contributions=[
+            ShapContribution(feature=f, impact=i) for f, i in contributions
+        ],
+        is_outlier_input=False,
+        model_version="v2",
+        luxury_category=LuxuryCategory.MEDIUM,
+    )
+
+
+def test_predict_post_renders_shap_chart_for_each_contribution(client, monkeypatch):
+    flask_client, mock = client
+    mock.post_predict.return_value = _shap_response(
+        contributions=[
+            ("num__built_up_area", 0.20),
+            ("num__sector_smoothed_price", -0.12),
+            ("ord__furnishing_type", 0.05),
+        ]
+    )
+    resp = flask_client.post("/predict", data=_VALID_FORM)
+    assert resp.status_code == 200
+    html = resp.get_data(as_text=True)
+
+    # Placeholder gone, real chart canvas present.
+    assert "SHAP explanation goes here" not in html
+    assert 'id="shap-chart"' in html
+    assert 'data-rows="' in html
+    # At least one human label is rendered in the chart's data-rows.
+    assert "Built-up Area (sqft)" in html
+    assert "Sector Average Price (smoothed)" in html
+    assert "Furnishing Type" in html
+    # At least one + or − text label visible in the accessible list.
+    # (The chart canvas itself is opaque; the <ul hidden> carries
+    # the per-row detail for screen readers.)
+    assert "Built-up Area (sqft)" in html
+
+
+def test_predict_post_renders_direction_summary_line(client, monkeypatch):
+    flask_client, mock = client
+    mock.post_predict.return_value = _shap_response(
+        contributions=[
+            ("num__built_up_area", 0.20),
+            ("num__sector_smoothed_price", -0.12),
+            ("ord__furnishing_type", 0.05),
+            ("num__age_bucket_ord", -0.03),
+        ]
+    )
+    resp = flask_client.post("/predict", data=_VALID_FORM)
+    assert resp.status_code == 200
+    html = resp.get_data(as_text=True)
+    # 2 up, 2 down → summary reflects exactly that count.
+    # The numbers are wrapped in <strong> tags, so search for the
+    # post-tag text instead of the bare digits.
+    assert "<strong>2</strong> factors pushed the price up" in html
+    assert "<strong>2</strong> pushed it down" in html
+
+
+def test_predict_post_renders_chart_even_when_shap_empty(client, monkeypatch):
+    flask_client, mock = client
+    mock.post_predict.return_value = _shap_response(contributions=[])
+    resp = flask_client.post("/predict", data=_VALID_FORM)
+    assert resp.status_code == 200
+    html = resp.get_data(as_text=True)
+    # No chart canvas, no SHAP list — but the section still renders
+    # the friendly inline empty-state (Rules §6.1 spirit).
+    assert 'id="shap-chart"' not in html
+    assert "No contribution breakdown available for this prediction." in html
+
+
+def test_predict_post_renders_accessible_text_summary(client, monkeypatch):
+    flask_client, mock = client
+    mock.post_predict.return_value = _shap_response(
+        contributions=[
+            ("num__built_up_area", 0.20),
+            ("num__sector_smoothed_price", -0.12),
+        ]
+    )
+    resp = flask_client.post("/predict", data=_VALID_FORM)
+    assert resp.status_code == 200
+    html = resp.get_data(as_text=True)
+    # Canvas carries role="img" + aria-label listing the labels.
+    assert 'role="img"' in html
+    assert 'aria-label="Top 2 SHAP feature contributions' in html
+    # Hidden text fallback list exists for screen readers.
+    assert 'class="shap-text-list" hidden' in html
+
+
+def test_predict_post_does_not_expose_raw_feature_codes_to_user(client, monkeypatch):
+    flask_client, mock = client
+    mock.post_predict.return_value = _shap_response(
+        contributions=[
+            ("num__built_up_area", 0.20),
+            ("ord__furnishing_type", 0.05),
+        ]
+    )
+    resp = flask_client.post("/predict", data=_VALID_FORM)
+    assert resp.status_code == 200
+    html = resp.get_data(as_text=True)
+    # The hidden <ul> is the screen-reader text source — that's
+    # what users (with or without a screen reader) would see if
+    # JS were disabled or chart rendering failed. It must NOT
+    # contain raw preprocessor codes.
+    list_start = html.find('<ul class="shap-text-list" hidden>')
+    list_end = html.find("</ul>", list_start) if list_start != -1 else -1
+    assert list_start != -1 and list_end != -1, "shap-text-list not rendered"
+    list_html = html[list_start:list_end]
+    assert "num__built_up_area" not in list_html
+    assert "ord__furnishing_type" not in list_html
+    # The raw code may legitimately appear in the data-rows JSON
+    # attribute (machine data for Chart.js) — that's allowed.
