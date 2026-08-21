@@ -76,8 +76,8 @@ Use this as a living checklist. Update status honestly (Not Started / In Progres
 | Day | Task | Status | Actual date | Notes / Result |
 |---|---|---|---|---|
 | 36 | Precompute all 13 analytics_cache JSON files | Not Started | | |
-| 37 | Flask scaffold + Landing page | Not Started | | |
-| 38 | Price Prediction form + result page + SHAP chart | Not Started | | |
+| 37 | Flask scaffold + Landing page | Done | 2026-08-21 | `app/app.py` (create_app factory, landing route, stub routes for classify/analytics/recommend/insights/map). Templates extend `base.html`; `@url_for()` for every link (Rules §6.3). 9 tests in `tests/test_scaffolding.py`. Landing module-grid uses endpoint names; post-Spec-19 fix: `predict_get` (not the old `predict`) so `url_for()` resolves. |
+| 38 | Price Prediction form + result page + SHAP chart | Done | 2026-08-21 | Spec 19. Flask form (Spec 18, `tests/test_predict_route.py` 16 tests) + per-prediction SHAP bar chart on `predict_result.html`. New `app/services/shap_format.py` (label map + `format_shap_for_template` + `summarize_direction`, `@lru_cache(maxsize=1)` for the on-disk label overlay). Chart.js via CDN, horizontal bar with `+`/`−`/`±` glyphs (colour is never the sole carrier of meaning, Rules §6.4). Hidden `<ul>` screen-reader fallback. Empty-state copy when FastAPI returns no SHAP. 16 helper tests (`tests/test_shap_format.py`) + 5 route-level tests green; ruff clean. |
 | 39 | Analytics dashboard shell + tiles 1–7 | Not Started | | |
 | 40 | Analytics tiles 8–13 + city filter AJAX | Not Started | | |
 | 41 | Recommender pages + Insights page | Not Started | | |
@@ -112,6 +112,8 @@ Record every non-trivial decision here so future-you (or a teammate) knows *why*
 |---|---|---|---|
 | | e.g. "Global model with CITY as feature, not 4 per-city models" | | |
 | | e.g. "Drop QUALITY_SCORE / FURNISHING_ATTRIBUTES columns" | ~100% missing in sample | Model-based imputation (rejected — no signal to impute from) |
+| 2026-08-21 | SHAP wire format stayed minimal (`{feature, impact}`); label, direction, and normalised magnitude are re-derived on the Flask side via `app/services/shap_format.py` | Keeps the FastAPI↔Flask contract aligned with `Backend Schema §7` (and Spec 17); lets the Flask template change its display (top-N, label-source, % normalisation) without an API change. Helpers live in `app/services/`, importing only the display-only `ml.explainability.labels` label map (Rules §5.1). | Including `direction`/`label`/`pct` in the FastAPI response would duplicate derivation logic and lock the wire format to one renderer's needs. |
+| 2026-08-21 | Reroute landing module-grid to `predict_get` (function-name endpoint) instead of the previous `endpoint="predict"` alias | Spec 18's `app.py` set `endpoint="predict"` for backwards-compat; `predict_result.html` + `base.html` already call `url_for("predict_get")`. After Spec 19, the canonical endpoint is the function name (Flask default), so the landing modules list was updated to match. Keeps every `url_for()` call site in lockstep — no alias left to drift. | Leaving the alias (`endpoint="predict"`) keeps one template happy but adds a long-term footgun: future contributors would have to know which endpoint is "real". |
 
 ## 4. Risk & Blocker Log
 

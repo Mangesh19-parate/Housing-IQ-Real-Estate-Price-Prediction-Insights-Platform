@@ -10,6 +10,15 @@ Flask route does no model code (Rules §5.1), no separate validation
 writes (the FastAPI side handles ``prediction_log`` per Spec 17).
 ``luxury_category`` is server-derived from the amenity checklist
 (Rules §10.2) — the Flask side never assigns a category.
+
+Spec 19 adds the per-prediction SHAP bar chart on
+``predict_result.html`` via ``format_shap_for_template`` + the
+``summarize_direction`` helper (app/services/shap_format.py). The
+FastAPI ``shap_contributions`` payload is wire-minimal
+(``{feature, impact}`` per Backend Schema §7); the Flask helper
+re-derives the human-readable label, the up/down/neutral direction
+and a magnitude-normalised ``pct`` for the Chart.js render. The
+wire format is unchanged.
 """
 
 from __future__ import annotations
@@ -21,7 +30,13 @@ from pydantic import ValidationError
 
 from app.config import FASTAPI_BASE_URL, FLASK_DEBUG, FLASK_SECRET_KEY
 from app.database.db import init_db
-from app.services import FastAPIClient, FastAPIUnavailable, inr_format
+from app.services import (
+    FastAPIClient,
+    FastAPIUnavailable,
+    format_shap_for_template,
+    inr_format,
+    summarize_direction,
+)
 from app.services.fastapi_client import KNOWN_CITIES
 
 # Initialized on first request — flag prevents init_db() running twice per process.
@@ -90,12 +105,12 @@ def create_app() -> Flask:
         """Landing page: city quick-filter + module cards."""
         cities = list(KNOWN_CITIES)
         modules = [
-            ("predict", "Price Prediction"),
+            ("predict_get", "Price Prediction"),
             ("classify", "Affordability & Investment Tier"),
             ("analytics", "Analytics"),
             ("recommend", "Recommender"),
             ("insights", "Market Insights"),
-            ("map", "Map Explorer"),
+            ("map_explorer", "Map Explorer"),
         ]
         return render_template(
             "landing.html",
@@ -103,7 +118,7 @@ def create_app() -> Flask:
             modules=modules,
         )
 
-    @app.route("/predict", methods=["GET"], endpoint="predict")
+    @app.route("/predict", methods=["GET"])
     def predict_get() -> str:
         """Render the 16-field Price Prediction form.
 
@@ -184,6 +199,15 @@ def create_app() -> Flask:
                 cities=list(KNOWN_CITIES),
             )
 
+        # Spec 19 — format the per-prediction SHAP contributions for
+        # the template. ``response.shap_contributions`` is the wire
+        # shape ``{feature, impact}``; the helper adds label,
+        # direction and a magnitude-normalised pct.
+        shap_rows = format_shap_for_template(
+            [c.model_dump() for c in response.shap_contributions]
+        )
+        shap_summary = summarize_direction(shap_rows)
+
         return render_template(
             "predict_result.html",
             unavailable=False,
@@ -193,6 +217,8 @@ def create_app() -> Flask:
             bedRoom=request_obj.bedRoom,
             built_up_area=request_obj.built_up_area,
             transact_type=request_obj.transact_type,
+            shap_rows=shap_rows,
+            shap_summary=shap_summary,
             cities=list(KNOWN_CITIES),
         )
 
