@@ -18,7 +18,6 @@ import pytest
 from app.database.db import get_db, init_db
 from migrations import runner
 
-
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
@@ -80,7 +79,7 @@ def test_migrate_creates_all_four_tables_on_empty_db(fresh_sqlite_db):
         rows = conn.execute(
             "SELECT version, source FROM schema_migrations"
         ).fetchall()
-    assert rows == [("001", "init_db")]
+    assert rows == [("001", "init_db"), ("002", "init_db")]
 
 
 # ---------------------------------------------------------------------------
@@ -97,7 +96,8 @@ def test_migrate_is_idempotent(fresh_sqlite_db):
         count = conn.execute(
             "SELECT COUNT(*) FROM schema_migrations"
         ).fetchone()[0]
-    assert count == 1
+    # Spec 20 added 002; both 001 + 002 are recorded after the first init_db().
+    assert count == 2
 
 
 # ---------------------------------------------------------------------------
@@ -226,8 +226,10 @@ def test_init_db_is_back_compatible_with_existing_callers(fresh_sqlite_db):
     # the return value. The widened return type must not break that.
     result = init_db(db_path=str(fresh_sqlite_db))
     assert isinstance(result, list)
-    assert len(result) == 1
+    # Spec 20 added 002; both 001 + 002 are recorded in apply-order.
+    assert len(result) == 2
     assert result[0].version == "001"
+    assert result[1].version == "002"
 
     # And the 4 tables exist.
     with sqlite3.connect(fresh_sqlite_db) as conn:
@@ -275,7 +277,8 @@ def test_migration_record_is_namedtuple():
 def test_current_version_round_trip(fresh_sqlite_db):
     assert runner.current_version(db_path_or_url=str(fresh_sqlite_db)) is None
     init_db(db_path=str(fresh_sqlite_db))
-    assert runner.current_version(db_path_or_url=str(fresh_sqlite_db)) == "001"
-    # Idempotent: still 001 after a second run.
+    # Spec 20 added 002; current_version returns the highest applied version.
+    assert runner.current_version(db_path_or_url=str(fresh_sqlite_db)) == "002"
+    # Idempotent: still 002 after a second run.
     init_db(db_path=str(fresh_sqlite_db))
-    assert runner.current_version(db_path_or_url=str(fresh_sqlite_db)) == "001"
+    assert runner.current_version(db_path_or_url=str(fresh_sqlite_db)) == "002"

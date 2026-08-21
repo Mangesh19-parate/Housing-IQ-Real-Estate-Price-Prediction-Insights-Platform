@@ -42,7 +42,9 @@ router = APIRouter()
 
 
 #: Lazy singleton — first request constructs it; subsequent requests
-#: reuse it. Module-level lock guards the construction race.
+#: reuse it. Module-level lock guards the construction race. The lifespan
+#: handler (Spec 20) overrides this with a registry-resolved instance
+#: via :func:`set_predict_service` if the registry has an active row.
 _service: PredictService | None = None
 _service_lock = threading.Lock()
 
@@ -52,6 +54,11 @@ def get_predict_service() -> PredictService:
 
     Constructed on first call; reused thereafter. The lifespan handler
     also calls :meth:`PredictService.warmup` once on startup.
+
+    If the lifespan handler (Spec 20) stashed a registry-resolved
+    service via :func:`set_predict_service`, return that one instead —
+    it carries the active ``model_version`` + ``artifact_path`` from
+    ``model_registry``.
     """
     global _service
     if _service is not None:
@@ -60,6 +67,18 @@ def get_predict_service() -> PredictService:
         if _service is None:
             _service = PredictService(MODELS_DIR)
     return _service
+
+
+def set_predict_service(service: PredictService) -> None:
+    """Override the singleton with a lifespan-resolved instance (Spec 20).
+
+    Idempotent — calling twice with the same service is a no-op. Used by
+    :func:`api.main.lifespan` to inject a registry-aware service after
+    resolving the active row at startup.
+    """
+    global _service
+    with _service_lock:
+        _service = service
 
 
 _PII_REGEX = _re.compile(r"(contact|dealer|phone|email|photo|url|spid)", _re.IGNORECASE)

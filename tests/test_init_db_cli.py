@@ -59,7 +59,36 @@ def test_cli_print_version_after_migration(tmp_path):
 
     result = _run_cli("--print-version", db_path=db_file)
     assert result.returncode == 0
-    assert result.stdout.strip() == "001"
+    # Spec 20 added migration 002; current_version() returns the highest.
+    assert result.stdout.strip() == "002"
+
+
+def test_cli_applies_002_columns_to_model_registry(tmp_path):
+    """Spec 20: after init_db, model_registry has is_active + artifact_path columns."""
+    db_file = tmp_path / "app.db"
+    result = _run_cli(db_path=db_file)
+    assert result.returncode == 0, result.stderr
+    import sqlite3
+    with sqlite3.connect(db_file) as conn:
+        cols = {row[1] for row in conn.execute("PRAGMA table_info(model_registry)")}
+    assert "is_active" in cols
+    assert "artifact_path" in cols
+    # Both Spec 20 indexes exist.
+    idx_rows = conn.execute("PRAGMA index_list(model_registry)").fetchall()
+    index_names = {row[1] for row in idx_rows}
+    assert "idx_model_registry_name_version" in index_names
+    assert "idx_model_registry_active" in index_names
+
+
+def test_cli_idempotent_002_even_if_runner_runs_twice(tmp_path):
+    """Running init_db twice on the same DB does not raise on the 002 ALTER guard."""
+    db_file = tmp_path / "app.db"
+    first = _run_cli(db_path=db_file)
+    assert first.returncode == 0, first.stderr
+    second = _run_cli(db_path=db_file)
+    assert second.returncode == 0, second.stderr
+    # Second run prints "already up to date" (no migration applied).
+    assert "already up to date" in second.stdout
 
 
 def test_cli_returns_nonzero_on_init_failure(tmp_path, monkeypatch):
