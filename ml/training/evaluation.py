@@ -219,6 +219,53 @@ def improvement_target_met(
     return out
 
 
+def write_oof_predictions(
+    predictions: "pd.DataFrame",
+    model_version: str,
+    processed_dir: "Path | str | None" = None,
+) -> "Path":
+    """Write per-row out-of-fold price regression predictions to disk.
+
+    Spec 21's ``build_good_deal_labels`` consumes this file — the
+    classifier requires **out-of-fold** predictions, never in-sample
+    (Rules §8.4). Schema: ``listing_id``, ``transact_type``,
+    ``oof_predicted_price``. Idempotent overwrite per model_version.
+
+    This is an additive helper; existing training scripts continue
+    to call their own metric helpers unchanged.
+    """
+    import os
+    from pathlib import Path
+
+    import pandas as pd
+
+    df = predictions
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError(
+            "write_oof_predictions: predictions must be a DataFrame"
+        )
+    required = {"listing_id", "transact_type", "oof_predicted_price"}
+    missing = required - set(df.columns)
+    if missing:
+        raise KeyError(
+            f"write_oof_predictions: missing columns {sorted(missing)}"
+        )
+
+    if processed_dir is None:
+        processed_dir = Path(
+            os.environ.get(
+                "HOUSINGIQ_PROCESSED_DIR",
+                "data/processed",
+            )
+        )
+    out_dir = Path(processed_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"oof_predictions_{model_version}.parquet"
+    df.to_parquet(out_path, index=False)
+    logger.info("Wrote %s (%d rows)", out_path, len(df))
+    return out_path
+
+
 __all__ = [
     "IMPROVEMENT_TARGET_PCT",
     "SMALL_CITY_TEST_ROWS",
@@ -227,4 +274,5 @@ __all__ = [
     "per_city_metrics",
     "regression_metrics",
     "vs_v1_metrics",
+    "write_oof_predictions",
 ]

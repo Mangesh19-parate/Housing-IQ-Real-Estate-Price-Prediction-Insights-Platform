@@ -11,3 +11,4 @@ Sub-packages:
 
 from ml import evaluation  # noqa: F401  (Spec 15 — fixed evaluation gate)
 from ml import explainability  # noqa: F401  (Spec 16 — SHAP explainability layer)
+from ml import classification  # noqa: F401  (Spec 21 — classification target builder)

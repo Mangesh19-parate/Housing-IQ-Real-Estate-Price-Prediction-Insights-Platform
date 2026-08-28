@@ -49,6 +49,22 @@ def main() -> None:
     status = "PASS" if gate_rc == 0 else "FAIL"
     print(f"protocol gate: {status} (rc={gate_rc})")
 
+    # Spec 21 — build classification labels (price_tier +
+    # good_deal_verdict). Non-fatal; surfaces in summary.
+    import subprocess
+
+    labels_rc = subprocess.run(
+        [
+            sys.executable,
+            "scripts/build_classification_labels.py",
+            "--model-version",
+            "v2",
+        ],
+        check=False,
+    ).returncode
+    labels_status = "OK" if labels_rc == 0 else "FAIL"
+    print(f"classification labels: {labels_status} (rc={labels_rc})")
+
 
 if __name__ == "__main__":
     main()
