@@ -65,6 +65,16 @@ def main() -> None:
     labels_status = "OK" if labels_rc == 0 else "FAIL"
     print(f"classification labels: {labels_status} (rc={labels_rc})")
 
+    # Spec 22 — build classifier feature frame (reuses the price-model
+    # pipeline, drops price-derived columns per Rules §8.1 + §12.4).
+    # Non-fatal; surfaces in summary.
+    features_rc = subprocess.run(
+        [sys.executable, "scripts/build_classifier_features.py"],
+        check=False,
+    ).returncode
+    features_status = "OK" if features_rc == 0 else "FAIL"
+    print(f"classifier features: {features_status} (rc={features_rc})")
+
 
 if __name__ == "__main__":
     main()

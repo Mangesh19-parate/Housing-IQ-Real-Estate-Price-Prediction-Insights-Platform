@@ -1,12 +1,30 @@
-"""Public API for the Classification target builder (Spec 21).
+"""Public API for the Classification target builder (Spec 21) +
+classifier feature-frame builder (Spec 22).
 
-Re-exports the five pinned public symbols so callers can write
+Re-exports the pinned public symbols so callers can write
 ``from ml.classification import build_price_tier_labels,
-build_good_deal_labels, calibrate_good_deal_thresholds, TIER_LABELS,
-VERDICT_LABELS`` without touching the submodule layout.
+build_good_deal_labels, calibrate_good_deal_thresholds,
+build_classifier_feature_frame, TIER_LABELS, VERDICT_LABELS`` without
+touching the submodule layout.
 """
 
-from ml.classification import report, thresholds, tiers, verdicts
+from ml.classification import (
+    feature_report,
+    features,
+    report,
+    thresholds,
+    tiers,
+    verdicts,
+)
+from ml.classification.feature_report import (
+    write_feature_frame_artifact,
+    write_feature_frame_report,
+)
+from ml.classification.features import (
+    DROPPED_FOR_LEAKAGE,
+    RETAINED_LOCALITY_COLUMN,
+    build_classifier_feature_frame,
+)
 from ml.classification.report import (
     write_good_deal_artifacts,
     write_label_construction_report,
@@ -30,16 +48,19 @@ from ml.classification.verdicts import (
 )
 
 #: Semver-pinned package version. Bumped on any intentional change to
-#: the label-construction behavior; surfaced in the report's run
-#: section so a reviewer can audit drift over time.
-__version__: str = "1.0.0"
+#: the label-construction behavior (1.0.0 → 1.1.0 added Spec 22's
+#: feature-frame builder); surfaced in the report's run section so a
+#: reviewer can audit drift over time.
+__version__: str = "1.1.0"
 
 __all__ = [
     # constants
     "DEFAULT_THRESHOLD_HIGH",
     "DEFAULT_THRESHOLD_LOW",
+    "DROPPED_FOR_LEAKAGE",
     "MIN_CITY_TRAIN_ROWS",
     "QUANTILE_CUTPOINTS",
+    "RETAINED_LOCALITY_COLUMN",
     "TIER_LABELS",
     "VERDICT_LABELS",
     # tier builder
@@ -49,11 +70,18 @@ __all__ = [
     "build_good_deal_labels",
     # threshold calibrator
     "calibrate_good_deal_thresholds",
-    # report writer
+    # feature-frame builder (Spec 22)
+    "build_classifier_feature_frame",
+    # report writers (Spec 21)
     "write_good_deal_artifacts",
     "write_label_construction_report",
     "write_price_tier_artifacts",
+    # report writers (Spec 22)
+    "write_feature_frame_artifact",
+    "write_feature_frame_report",
     # submodules
+    "feature_report",
+    "features",
     "report",
     "thresholds",
     "tiers",
