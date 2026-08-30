@@ -33,6 +33,7 @@ from scripts import (  # noqa: E402,F401  (parse_check is a placeholder; Step 04
     evaluate_price_model,
     ingest_raw,
     parse_check,
+    train_classifiers,      # Spec 23
     train_price_model_v2,
 )
 
@@ -74,6 +75,30 @@ def main() -> None:
     ).returncode
     features_status = "OK" if features_rc == 0 else "FAIL"
     print(f"classifier features: {features_status} (rc={features_rc})")
+
+    # Spec 23 — train classification models (good_deal_verdict +
+    # price_tier). Non-fatal; surfaces in summary.
+    train_rc = subprocess.run(
+        [
+            sys.executable,
+            "scripts/train_classifiers.py",
+            "--features",
+            "data/processed/classifier/feature_frame.parquet",
+            "--labels",
+            "data/processed/classifier",
+            "--models-dir",
+            "models",
+            "--report",
+            "models/classification_training_report.md",
+            "--version",
+            "1",
+            "--random-state",
+            "42",
+        ],
+        check=False,
+    ).returncode
+    train_status = "OK" if train_rc == 0 else "FAIL"
+    print(f"classification training: {train_status} (rc={train_rc})")
 
 
 if __name__ == "__main__":
