@@ -195,8 +195,8 @@ pytest -s
 | `GET /` | Implemented (Step 01) — landing page with city quick-filter and module cards |
 | `GET /predict` | Stub — Price Prediction form |
 | `POST /predict` (Flask → calls FastAPI `POST /predict`) | Stub |
-| `GET /classify` | Stub — Classification form (Affordability & Investment-Tier Filter) |
-| `POST /classify` (Flask → calls FastAPI `POST /classify`) | Stub |
+| `GET /classify` | Implemented (Spec 26) — Classification form reusing 16-field contract, "Is this a good deal?" heading |
+| `POST /classify` (Flask → calls FastAPI `POST /classify`) | Implemented (Spec 26) — VerdictBadge + AffordabilityChip + 4-bar tier chart + SHAP, graceful degradation |
 | `GET /analytics` | Stub — dashboard shell, 13 chart tiles (5 originally specified + 8 added) |
 | `GET /recommend` | Stub — Recommender form + results grid |
 | `POST /recommend` (Flask → calls FastAPI `POST /recommend`) | Stub |

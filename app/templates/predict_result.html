@@ -4,6 +4,7 @@
 
 {% block extra_styles %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/classify.css') }}">
 {% endblock %}
 
 {% block extra_scripts %}
@@ -39,6 +40,24 @@
         luxury: {{ response.luxury_category.value }}
       </div>
     </section>
+
+    {# VerdictBadge + AffordabilityChip (Spec 26 / UI/UX §U-UX-9) #}
+    {% if classification_result is not none %}
+      <section class="classification-hero">
+        <div class="verdict-badge verdict-badge--{{ classification_result.good_deal_verdict.value | lower | replace(' ', '-') }}">
+          <span class="verdict-badge__icon" aria-hidden="true">
+            {% if classification_result.good_deal_verdict.value == "Good Deal" %}✅
+            {% elif classification_result.good_deal_verdict.value == "Fair Deal" %}⚖️
+            {% else %}⚠️
+            {% endif %}
+          </span>
+          <span class="verdict-badge__text">{{ classification_result.good_deal_verdict.value }}</span>
+        </div>
+        <div class="affordability-chip affordability-chip--{{ classification_result.price_tier.value | lower | replace('-', '-') }}">
+          {{ classification_result.price_tier.value }}
+        </div>
+      </section>
+    {% endif %}
 
     <section class="why-this-price">
       <h2>Why this price?</h2>
