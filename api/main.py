@@ -6,8 +6,8 @@ template rendering here. Pages belong in ``app/``.
 The lifespan context manager replaces the deprecated ``@app.on_event``
 decorator (per the ``fastapi-serving`` skill): it runs ``init_db()``
 to ensure the four operational tables exist, then warms up the price
-prediction service so the first ``POST /predict`` doesn't pay the
-load-from-disk cost.
+prediction service and the classification service so the first requests
+don't pay the load-from-disk cost.
 
 Spec 20: lifespan also resolves the active model from the
 ``model_registry`` table. If a row is found, the PredictService is
@@ -16,6 +16,10 @@ reconstructed with that version + artifact path so the live
 back to the historical module-level default (``MODEL_VERSION = "v2"``)
 with a one-line warning when no active row exists — matches Rules
 §5.2's graceful-degradation rule.
+
+Spec 25: lifespan also warms up the classification service. Registry
+integration for classifiers is a follow-on (TODO) — the default
+``MODEL_VERSION = "v1"`` covers v1.
 """
 
 from __future__ import annotations
@@ -30,7 +34,9 @@ from fastapi import FastAPI
 from api.config import MODELS_DIR
 from api.routers import analytics, classify, insights, models as models_router
 from api.routers import predict, recommend
+from api.routers.classify import get_classify_service
 from api.routers.predict import get_predict_service, set_predict_service
+from api.services.classify_service import MODEL_VERSION as CLASSIFY_MODEL_VERSION
 from api.services.predict_service import MODEL_VERSION, PredictService
 from app.database.db import init_db
 from ml.registry import get_active_artifact
@@ -43,21 +49,42 @@ async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
     """FastAPI startup/shutdown handler.
 
     Startup order:
-        1. ``init_db()`` — apply pending migrations + 002 column guard.
+        1. ``init_db()`` — apply pending migrations + 002/003 column guards.
         2. Resolve the active ``price_model_sale`` row from the registry
            (Spec 20). If found, construct a ``PredictService`` carrying
            the registered version + artifact path and inject it via
            :func:`set_predict_service`. If not, fall back to the
            default service (MODULE_VERSION = "v2").
-        3. Warmup the resolved service.
+        3. Warmup the resolved predict service (graceful if artifacts missing).
+        4. Warmup the classification service (Spec 25). Registry
+           integration for classifiers is a follow-on (see
+           ``_resolve_active_classify_service`` TODO).
 
     Shutdown: nothing to release (joblib-loaded artifacts are
     process-local; OS reclaims them on exit).
     """
     init_db()
     _resolve_active_service()
-    get_predict_service().warmup()
-    logger.info("FastAPI startup complete — predict service warmed")
+    # Spec 25: warm up predict service (graceful if artifacts missing)
+    try:
+        get_predict_service().warmup()
+        logger.info("FastAPI startup complete — predict service warmed")
+    except FileNotFoundError as exc:
+        logger.warning(
+            "Price prediction artifacts missing (%s); /predict will 503 until "
+            "trained models are available. This is expected on fresh deploys.",
+            exc,
+        )
+    # Spec 25: warm up classification service (both pipelines + preprocessor)
+    try:
+        get_classify_service().warmup()
+        logger.info("FastAPI startup complete — classify service warmed")
+    except FileNotFoundError as exc:
+        logger.warning(
+            "Classification artifacts missing (%s); /classify will 503 until "
+            "trained models are available. This is expected on fresh deploys.",
+            exc,
+        )
     yield
 
 
@@ -100,6 +127,43 @@ def _resolve_active_service() -> None:
         artifact_path,
     )
     set_predict_service(PredictService(MODELS_DIR, model_version=version))
+
+
+# TODO(Spec 25 follow-on): Registry integration for classifiers.
+# Mirrors _resolve_active_service() but for good_deal_classifier.
+# def _resolve_active_classify_service() -> None:
+#     resolved = get_active_artifact("good_deal_classifier")
+#     if resolved is None:
+#         logger.warning(
+#             "no active row for good_deal_classifier in model_registry — "
+#             "falling back to module-level CLASSIFY_MODEL_VERSION"
+#         )
+#         return
+#     version, artifact_path = resolved
+#     abs_path = Path(artifact_path)
+#     if not abs_path.is_absolute():
+#         abs_path = (Path.cwd() / abs_path).resolve()
+#     if not abs_path.exists():
+#         logger.warning(
+#             "active row %s/%s points at missing artifact %s — "
+#             "falling back to MODELS_DIR with version %s",
+#             "good_deal_classifier",
+#             version,
+#             artifact_path,
+#             version,
+#         )
+#         from api.routers.classify import set_classify_service
+#         from api.services.classify_service import ClassifyService
+#         set_classify_service(ClassifyService(MODELS_DIR, model_version=version))
+#         return
+#     logger.info(
+#         "resolved active good_deal_classifier from registry: version=%s artifact=%s",
+#         version,
+#         artifact_path,
+#     )
+#     from api.routers.classify import set_classify_service
+#     from api.services.classify_service import ClassifyService
+#     set_classify_service(ClassifyService(MODELS_DIR, model_version=version))
 
 
 app = FastAPI(
