@@ -203,7 +203,7 @@ pytest -s
 | `GET /insights` | Stub — standalone Insights page (also surfaced inline after a prediction) |
 | `GET /map` | Stub — map-based property explorer (Leaflet) |
 | `POST /predict` (FastAPI) | Implemented (Spec 17) — v2 `_SerializableV2Pipeline` + precomputed SHAP explainer, server-derived luxury category, parameterized `prediction_log` insert |
-| `POST /classify` (FastAPI) | Stub |
+| `POST /classify` (FastAPI) | Implemented (Spec 25) — both classifiers (good_deal + price_tier) + shared preprocessor + SHAP, verdict-led response, parameterized `classification_log` insert |
 | `POST /recommend` (FastAPI) | Stub |
 | `GET /insights` (FastAPI) | Stub |
 | `GET /health` (FastAPI) | Implemented (Step 01) — returns `{"status": "ok"}`; no DB ping, no model load |

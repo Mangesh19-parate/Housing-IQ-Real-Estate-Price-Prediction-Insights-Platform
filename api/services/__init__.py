@@ -6,12 +6,16 @@ Per CLAUDE.md, model-inference logic lives here — the routers in
 
 from __future__ import annotations
 
+from api.services.classify_service import (
+    ClassifyService,
+    MODEL_VERSION as CLASSIFY_MODEL_VERSION,
+)
 from api.services.predict_service import (
     DEFAULT_RESIDUAL_STD_PCT,
     GEO_NUMERIC_FEATURES,
     MODEL_VERSION,
-    SECTOR_OUTPUT_COLUMN,
     PredictService,
+    SECTOR_OUTPUT_COLUMN,
 )
 
 __all__ = [
@@ -20,4 +24,6 @@ __all__ = [
     "MODEL_VERSION",
     "PredictService",
     "SECTOR_OUTPUT_COLUMN",
+    "ClassifyService",
+    "CLASSIFY_MODEL_VERSION",
 ]

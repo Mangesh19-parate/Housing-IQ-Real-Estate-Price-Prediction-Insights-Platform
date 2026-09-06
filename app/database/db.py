@@ -140,6 +140,40 @@ def get_db(db_path: str | None = None) -> Iterator[sqlite3.Connection]:
 _SQLITE_002_MIGRATION_FILE: Final[str] = "002_add_active_and_artifact.sql"
 _SQLITE_002_GUARD_COLUMN: Final[str] = "is_active"
 
+#: Migration 003 guard (Spec 25) — adds verdict_probabilities_json +
+#: latency_ms to classification_log.
+_SQLITE_003_MIGRATION_FILE: Final[str] = "003_classification_log_columns.sql"
+_SQLITE_003_GUARD_COLUMN: Final[str] = "verdict_probabilities_json"
+
+
+def _ensure_sqlite_003_columns(conn: sqlite3.Connection) -> None:
+    """Apply migration 003 if and only if its columns are missing.
+
+    SQLite ``ALTER TABLE ... ADD COLUMN`` does not support ``IF NOT EXISTS``
+    and re-running raises ``duplicate column name``. The 003 migration
+    adds two columns (``verdict_probabilities_json``, ``latency_ms``) to
+    ``classification_log`` — guarded here by checking ``PRAGMA table_info``.
+
+    Postgres handles its own idempotency via ``ADD COLUMN IF NOT EXISTS``
+    in the .sql body, so this guard runs only on the SQLite dialect
+    (called from :func:`init_db` after the runner completes).
+    """
+    info = conn.execute("PRAGMA table_info(classification_log)").fetchall()
+    columns = {row["name"] for row in info}
+    if _SQLITE_003_GUARD_COLUMN in columns:
+        return
+
+    # Resolve repo root from this file: app/database/db.py -> app/database -> app -> <repo>
+    repo_root = Path(__file__).resolve().parent.parent.parent
+    sql_path = repo_root / "migrations" / "sqlite" / _SQLITE_003_MIGRATION_FILE
+    if not sql_path.exists():
+        return  # migration file not on disk yet — nothing to do
+
+    sql = sql_path.read_text(encoding="utf-8")
+    statements = [chunk.strip() for chunk in sql.split(";") if chunk.strip()]
+    for stmt in statements:
+        conn.execute(stmt)
+
 
 def _ensure_sqlite_002_columns(conn: sqlite3.Connection) -> None:
     """Apply migration 002 if and only if its columns are missing.
@@ -193,7 +227,8 @@ def init_db(db_path: str | None = None) -> list:
 
     applied = migrate(db_path_or_url=db_path, source="init_db")
 
-    # SQLite-only post-pass: guard the 002 ALTER TABLE statements.
+    # SQLite-only post-pass: guard the 002 ALTER TABLE statements (Spec 20)
+    # and 003 ALTER TABLE statements (Spec 25).
     if detect_dialect(db_path) == "sqlite":
         path = Path(db_path) if db_path is not None else Path(APP_DB_PATH)
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -201,6 +236,7 @@ def init_db(db_path: str | None = None) -> list:
         conn.row_factory = sqlite3.Row
         try:
             _ensure_sqlite_002_columns(conn)
+            _ensure_sqlite_003_columns(conn)
             conn.commit()
         except Exception:
             conn.rollback()
