@@ -72,6 +72,16 @@ Use this as a living checklist. Update status honestly (Not Started / In Progres
 | 34 | Precompute stats tables + insight templater | Not Started | | |
 | 35 | **Checkpoint:** /recommend + /insights endpoints working | Not Started | | |
 
+### Spec 26 — Classification Result UI (implemented 2026-09-06)
+| Day | Task | Status | Actual date | Notes / Result |
+|---|---|---|---|---|
+| 26-S1 | CSS variables for VerdictBadge + AffordabilityChip in style.css | Done | 2026-09-06 | 7 new CSS vars: --verdict-good-deal, --verdict-fair-price, --verdict-overpriced, --tier-budget, --tier-mid-range, --tier-premium, --tier-luxury. |
+| 26-S2 | ClassifyClient HTTP wrapper (app/services/classify_client.py) | Done | 2026-09-06 | Mirrors FastAPIClient pattern: 2.5s timeout, error collapse to ClassifyUnavailable, Pydantic response validation. |
+| 26-S3 | Flask GET /classify route + classify.html template | Done | 2026-09-06 | Reuses 16-field form from predict.html; heading "Is this a good deal?"; button "Check Price Tier". endpoint="classify_get" for url_for() compatibility. |
+| 26-S4 | Flask POST /classify route + classify_result.html template | Done | 2026-09-06 | VerdictBadge (primary, large, icon+text), AffordabilityChip (secondary), 4-bar horizontal tier probability chart (Chart.js), SHAP bar chart (reusing shap_format helper). Graceful degradation when FastAPI unavailable. |
+| 26-S5 | predict_result.html updated with VerdictBadge + AffordabilityChip | Done | 2026-09-06 | Inline classification badges below price hero when classification succeeds; omits silently on failure. |
+| 26-S6 | Tests: test_classify_route.py (16 tests) | Done | 2026-09-06 | GET form, POST happy path, validation, verdict variants, tier variants, SHAP chart, tier probability chart, layering rule, graceful degradation. All pass. |
+
 ### Week 6 — Flask App & Analytics UI
 | Day | Task | Status | Actual date | Notes / Result |
 |---|---|---|---|---|

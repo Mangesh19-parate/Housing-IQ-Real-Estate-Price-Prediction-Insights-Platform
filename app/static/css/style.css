@@ -15,6 +15,17 @@
   --color-neg: hsl(0, 70%, 50%);
   --color-empty: var(--color-muted);
 
+  /* VerdictBadge colors (good-deal-first hierarchy, UI/UX §U-UX-9) */
+  --verdict-good-deal: hsl(140, 60%, 40%);
+  --verdict-fair-price: hsl(210, 90%, 50%);
+  --verdict-overpriced: hsl(25, 90%, 50%);
+
+  /* AffordabilityChip colors (UI/UX §U-UX-1) */
+  --tier-budget: hsl(140, 60%, 40%);
+  --tier-mid-range: hsl(210, 90%, 50%);
+  --tier-premium: hsl(260, 60%, 50%);
+  --tier-luxury: hsl(40, 80%, 55%);
+
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 1rem;

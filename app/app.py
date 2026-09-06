@@ -31,6 +31,8 @@ from pydantic import ValidationError
 from app.config import FASTAPI_BASE_URL, FLASK_DEBUG, FLASK_SECRET_KEY
 from app.database.db import init_db
 from app.services import (
+    ClassifyClient,
+    ClassifyUnavailable,
     FastAPIClient,
     FastAPIUnavailable,
     format_shap_for_template,
@@ -44,6 +46,8 @@ _db_initialized = False
 
 # Module-level lazy singleton for the FastAPI HTTP client.
 _fastapi_client: FastAPIClient | None = None
+# Module-level lazy singleton for the Classification HTTP client.
+_classify_client: ClassifyClient | None = None
 
 
 def _get_client() -> FastAPIClient:
@@ -52,6 +56,14 @@ def _get_client() -> FastAPIClient:
     if _fastapi_client is None:
         _fastapi_client = FastAPIClient(FASTAPI_BASE_URL)
     return _fastapi_client
+
+
+def _get_classify_client() -> ClassifyClient:
+    """Process-wide Classification client; first call instantiates, later calls reuse."""
+    global _classify_client
+    if _classify_client is None:
+        _classify_client = ClassifyClient(FASTAPI_BASE_URL)
+    return _classify_client
 
 
 def _enum_options() -> dict[str, list[str]]:
@@ -106,7 +118,7 @@ def create_app() -> Flask:
         cities = list(KNOWN_CITIES)
         modules = [
             ("predict_get", "Price Prediction"),
-            ("classify", "Affordability & Investment Tier"),
+            ("classify_get", "Affordability & Investment Tier"),
             ("analytics", "Analytics"),
             ("recommend", "Recommender"),
             ("insights", "Market Insights"),
@@ -199,6 +211,16 @@ def create_app() -> Flask:
                 cities=list(KNOWN_CITIES),
             )
 
+        # Also call classification (parallel in spirit — sequential here for simplicity)
+        # Per UML Sequence Diagram §3: if /classify fails, omit the badge only.
+        classification_result = None
+        classify_client = _get_classify_client()
+        try:
+            classification_result = classify_client.post_classify(request_obj)
+        except ClassifyUnavailable:
+            # Graceful degradation: pass None so template omits badges silently
+            classification_result = None
+
         # Spec 19 — format the per-prediction SHAP contributions for
         # the template. ``response.shap_contributions`` is the wire
         # shape ``{feature, impact}``; the helper adds label,
@@ -219,6 +241,7 @@ def create_app() -> Flask:
             transact_type=request_obj.transact_type,
             shap_rows=shap_rows,
             shap_summary=shap_summary,
+            classification_result=classification_result,
             cities=list(KNOWN_CITIES),
         )
 
@@ -229,6 +252,109 @@ def create_app() -> Flask:
     @app.errorhandler(500)
     def _server_error(_err):
         return ("Server error", 500)
+
+    # ---- Classification routes (Spec 26) ----
+
+    @app.route("/classify", methods=["GET"], endpoint="classify_get")
+    def classify_get() -> str:
+        """Render the Classification form page.
+
+        Reuses the same 16-field form as /predict (Spec 18) but with
+        heading "Is this a good deal?" and button "Check Price Tier"
+        per UI/UX §U-UX-10.
+        """
+        client = _get_client()
+        localities_by_city = {
+            city: client.get_localities(city) for city in KNOWN_CITIES
+        }
+        return render_template(
+            "classify.html",
+            cities=list(KNOWN_CITIES),
+            localities_by_city=localities_by_city,
+            enum_options=_enum_options(),
+        )
+
+    @app.route("/classify", methods=["POST"])
+    def classify_post() -> Any:
+        """Forward the submitted form to FastAPI /classify and render the result.
+
+        Validates the form into ``PredictRequestV3`` (same 16-field contract
+        as /predict). On validation failure, flash and redirect to form.
+        On FastAPI failure, render result page with ``classification_error=True``
+        for graceful degradation (Rules §5.2).
+        """
+        from api.schemas.predict_v3 import PredictRequestV3
+
+        form = request.form
+        # Luxury finish checklist → append to amenities list (same as predict)
+        amenities = list(form.getlist("amenities"))
+        for flag in form.getlist("luxury_finish"):
+            amenities.append(f"finish:{flag}")
+
+        payload: dict[str, Any] = {
+            "city": form.get("city", "").strip(),
+            "sector": form.get("sector", "").strip(),
+            "property_type": form.get("property_type", "").strip(),
+            "transact_type": form.get("transact_type", "").strip(),
+            "bedRoom": int(form.get("bedRoom", 0)),
+            "bathroom": int(form.get("bathroom", 0)),
+            "balcony": form.get("balcony", "").strip(),
+            "agePossession": form.get("agePossession", "").strip(),
+            "built_up_area": float(form.get("built_up_area", 0)),
+            "servant_room": form.get("servant_room") == "1",
+            "store_room": form.get("store_room") == "1",
+            "furnishing_type": form.get("furnishing_type", "").strip(),
+            "floor_category": form.get("floor_category", "").strip(),
+            "facing": form.get("facing", "").strip(),
+            "amenities": amenities,
+        }
+
+        try:
+            request_obj = PredictRequestV3.model_validate(payload)
+        except ValidationError as exc:
+            first = exc.errors()[0] if exc.errors() else {"msg": "Invalid input"}
+            flash(f"Please check your input: {first.get('msg', 'Invalid input')}",
+                  "error")
+            return redirect(url_for("classify_get"))
+
+        client = _get_classify_client()
+        try:
+            response = client.post_classify(request_obj)
+        except ClassifyUnavailable:
+            return render_template(
+                "classify_result.html",
+                classification_error=True,
+                cities=list(KNOWN_CITIES),
+            )
+
+        # Format SHAP contributions for template (same helper as predict)
+        shap_rows = format_shap_for_template(
+            [c.model_dump() for c in response.shap_contributions]
+        )
+        shap_summary = summarize_direction(shap_rows)
+
+        # Tier probabilities for the 4-bar chart — ensure all 4 tiers present
+        tier_probs = {
+            "Budget": response.tier_probabilities.get("Budget", 0.0),
+            "Mid-Range": response.tier_probabilities.get("Mid-Range", 0.0),
+            "Premium": response.tier_probabilities.get("Premium", 0.0),
+            "Luxury": response.tier_probabilities.get("Luxury", 0.0),
+        }
+
+        return render_template(
+            "classify_result.html",
+            classification_error=False,
+            response=response,
+            city=request_obj.city,
+            sector=request_obj.sector,
+            bedRoom=request_obj.bedRoom,
+            built_up_area=request_obj.built_up_area,
+            transact_type=request_obj.transact_type,
+            shap_rows=shap_rows,
+            shap_summary=shap_summary,
+            tier_probs=tier_probs,
+            cities=list(KNOWN_CITIES),
+        )
 
     # ---- module page stubs (per CLAUDE.md route table) ----
     # Each just renders a placeholder so `url_for()` builds the link
@@ -244,7 +370,6 @@ def create_app() -> Flask:
         return handler
 
     for _endpoint, _label in [
-        ("classify", "Classify"),
         ("analytics", "Analytics"),
         ("recommend", "Recommender"),
         ("insights", "Insights"),

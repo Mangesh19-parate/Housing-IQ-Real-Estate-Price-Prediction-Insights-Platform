@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+
+{% block title %}HousingIQ — Classification Result{% endblock %}
+
+{% block extra_styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/classify.css') }}">
+{% endblock %}
+
+{% block extra_scripts %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+{% endblock %}
+
+{% block content %}
+<section class="classify-result">
+  {% if classification_error %}
+    <div class="empty-state" role="alert">
+      <h2>Classification service is temporarily unavailable</h2>
+      <p>Please try again in a moment.</p>
+      <p><a href="{{ url_for('classify_get') }}">← Back to the form</a></p>
+    </div>
+  {% else %}
+    <section class="classification-hero">
+      <div class="verdict-badge verdict-badge--{{ response.good_deal_verdict.value | lower | replace(' ', '-') }}">
+        <span class="verdict-badge__icon" aria-hidden="true">
+          {% if response.good_deal_verdict.value == "Good Deal" %}✅
+          {% elif response.good_deal_verdict.value == "Fair Deal" %}⚖️
+          {% else %}⚠️
+          {% endif %}
+        </span>
+        <span class="verdict-badge__text">{{ response.good_deal_verdict.value }}</span>
+      </div>
+      <div class="affordability-chip affordability-chip--{{ response.price_tier.value | lower | replace('-', '-') }}">
+        {{ response.price_tier.value }}
+      </div>
+      <div class="classification-hero__summary">
+        {{ bedRoom }} BHK · {{ built_up_area }} sqft · {{ sector }}, {{ city }}
+      </div>
+      <div class="classification-hero__meta">
+        model: {{ response.model_version }} ·
+        luxury: {{ response.luxury_category.value }}
+      </div>
+    </section>
+
+    <section class="why-this-verdict">
+      <h2>Why this verdict?</h2>
+      {% if shap_rows %}
+        <p class="why-this-verdict__summary">
+          <strong>{{ shap_summary.up }}</strong> factor{{ "s" if shap_summary.up != 1 else "" }} pushed toward Good Deal,
+          <strong>{{ shap_summary.down }}</strong> pushed toward Overpriced.
+        </p>
+        <canvas id="shap-chart"
+                role="img"
+                aria-label="Top {{ shap_rows|length }} SHAP feature contributions for this classification: {{ shap_rows|map(attribute='label')|join(', ') }}."
+                data-rows="{{ shap_rows|tojson }}"></canvas>
+        <ul class="shap-text-list" hidden>
+          {% for row in shap_rows %}
+            <li>
+              {% if row.direction == 'up' %}+{% elif row.direction == 'down' %}&minus;{% else %}&plusmn;{% endif %}
+              {{ row.label }}
+              {% if row.direction != 'neutral' %}
+                ({{ (row.pct * 100)|round(1) }}%)
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="empty-state__inline">No contribution breakdown available for this classification.</p>
+      {% endif %}
+    </section>
+
+    <section class="tier-probabilities">
+      <h2>Price Tier Probabilities</h2>
+      <p class="tier-probabilities__note">All four tiers shown — a close call between tiers means the model isn't strongly confident.</p>
+      <canvas id="tier-chart"
+              role="img"
+              aria-label="Price tier probabilities: Budget {{ tier_probs.Budget|round(2) }}, Mid-Range {{ tier_probs['Mid-Range']|round(2) }}, Premium {{ tier_probs.Premium|round(2) }}, Luxury {{ tier_probs.Luxury|round(2) }}."
+              data-probs="{{ tier_probs|tojson }}"></canvas>
+      <ul class="tier-text-list" hidden>
+        <li>Budget: {{ (tier_probs.Budget * 100)|round(1) }}%</li>
+        <li>Mid-Range: {{ (tier_probs['Mid-Range'] * 100)|round(1) }}%</li>
+        <li>Premium: {{ (tier_probs.Premium * 100)|round(1) }}%</li>
+        <li>Luxury: {{ (tier_probs.Luxury * 100)|round(1) }}%</li>
+      </ul>
+    </section>
+
+    <a class="cta-recommend" href="{{ url_for('recommend') }}">
+      See similar properties →
+    </a>
+  {% endif %}
+</section>
+
+<script>
+  // Render the SHAP bar chart (same pattern as predict_result.html)
+  (function () {
+    var canvas = document.getElementById("shap-chart");
+    if (!canvas || typeof Chart === "undefined") return;
+    var rows;
+    try {
+      rows = JSON.parse(canvas.getAttribute("data-rows") || "[]");
+    } catch (e) {
+      return;
+    }
+    if (!rows.length) return;
+    var labels = rows.map(function (r) { return r.label; });
+    var values = rows.map(function (r) { return r.pct; });
+    var colors = rows.map(function (r) {
+      if (r.direction === "down") return "hsl(0, 70%, 50%)";
+      if (r.direction === "neutral") return "hsl(220, 15%, 70%)";
+      return "hsl(140, 60%, 40%)";
+    });
+    var glyph = rows.map(function (r) {
+      if (r.direction === "down") return "−";
+      if (r.direction === "neutral") return "±";
+      return "+";
+    });
+    new Chart(canvas, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [{
+          data: values,
+          backgroundColor: colors,
+          borderWidth: 0
+        }]
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (ctx) {
+                var r = rows[ctx.dataIndex];
+                return glyph[ctx.dataIndex] + " " + r.label
+                  + " (" + (r.pct * 100).toFixed(1) + "%)";
+              }
+            }
+          }
+        },
+        scales: {
+          x: { min: -1, max: 1, ticks: { display: false }, grid: { display: false } },
+          y: { grid: { display: false } }
+        }
+      }
+    });
+  })();
+
+  // Render the 4-bar tier probability chart
+  (function () {
+    var canvas = document.getElementById("tier-chart");
+    if (!canvas || typeof Chart === "undefined") return;
+    var probs;
+    try {
+      probs = JSON.parse(canvas.getAttribute("data-probs") || "{}");
+    } catch (e) {
+      return;
+    }
+    var tierOrder = ["Budget", "Mid-Range", "Premium", "Luxury"];
+    var labels = tierOrder;
+    var values = tierOrder.map(function (t) { return probs[t] || 0; });
+    var colors = tierOrder.map(function (t) {
+      if (t === "Budget") return "hsl(140, 60%, 40%)";
+      if (t === "Mid-Range") return "hsl(210, 90%, 50%)";
+      if (t === "Premium") return "hsl(260, 60%, 50%)";
+      return "hsl(40, 80%, 55%)";
+    });
+    new Chart(canvas, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Probability",
+          data: values,
+          backgroundColor: colors,
+          borderWidth: 0
+        }]
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (ctx) {
+                return labels[ctx.dataIndex] + ": " + (values[ctx.dataIndex] * 100).toFixed(1) + "%";
+              }
+            }
+          }
+        },
+        scales: {
+          x: { min: 0, max: 1, ticks: { callback: function (v) { return (v * 100) + "%"; } } },
+          y: { grid: { display: false } }
+        }
+      }
+    });
+  })();
+</script>
+{% endblock %}

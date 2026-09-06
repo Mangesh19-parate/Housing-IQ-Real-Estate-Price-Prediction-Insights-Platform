@@ -29,6 +29,7 @@ from pathlib import Path
 from typing import Final
 
 from app.config import APP_DB_PATH
+from migrations.runner import MigrationRecord
 
 # ---------------------------------------------------------------------------
 # DDL — re-exported for back-compat. The real source of truth is the
@@ -225,12 +226,18 @@ def init_db(db_path: str | None = None) -> list:
     # to the migrations package's runtime cost in every context.
     from migrations.runner import detect_dialect, migrate
 
+    # Resolve db_path at call time, not import time, so test monkeypatches
+    # on app.config.APP_DB_PATH are respected.
+    if db_path is None:
+        from app.config import APP_DB_PATH as _APP_DB_PATH
+        db_path = _APP_DB_PATH
+
     applied = migrate(db_path_or_url=db_path, source="init_db")
 
     # SQLite-only post-pass: guard the 002 ALTER TABLE statements (Spec 20)
     # and 003 ALTER TABLE statements (Spec 25).
     if detect_dialect(db_path) == "sqlite":
-        path = Path(db_path) if db_path is not None else Path(APP_DB_PATH)
+        path = Path(db_path)
         path.parent.mkdir(parents=True, exist_ok=True)
         conn = sqlite3.connect(path)
         conn.row_factory = sqlite3.Row
