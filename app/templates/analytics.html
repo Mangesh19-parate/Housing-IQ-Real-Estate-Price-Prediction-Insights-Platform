@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block title %}HousingIQ — Analytics Dashboard{% endblock %}
+
+{% block extra_styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/analytics.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+{% endblock %}
+
+{% block extra_scripts %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-boxplot@4.4.3/dist/chartjs-chart-boxplot.umd.min.js" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <script src="{{ url_for('static', filename='js/analytics.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<section class="analytics-dashboard" data-api-base="{{ fastapi_base_url }}">
+  <header class="analytics-header">
+    <h1>Analytics Dashboard</h1>
+    <p class="analytics-subtitle">Precomputed insights across 4 Indian cities — 13 chart tiles</p>
+  </header>
+
+  <div class="analytics-toolbar" role="search" aria-label="City filter">
+    <label for="city-filter" class="visually-hidden">Filter by city</label>
+    <select id="city-filter" name="city" aria-label="Select city to filter charts">
+      <option value="ALL" selected>All Cities</option>
+      <option value="Gurgaon">Gurgaon</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Kolkata">Kolkata</option>
+      <option value="Mumbai">Mumbai</option>
+    </select>
+    <span id="city-filter-status" class="filter-status" aria-live="polite"></span>
+  </div>
+
+  <div class="analytics-grid" role="list" aria-label="Analytics chart tiles">
+    <!-- Chart 01: Spatial Map (full width) -->
+    <article class="chart-tile chart-tile--full chart-tile--map" data-chart-id="chart_01_spatial_map" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Listing Map by Price per Sqft</h2>
+        <p class="chart-tile__caption">Clustered markers colored by price per sqft. Zoom and pan to explore.</p>
+      </header>
+      <div class="chart-tile__body">
+        <div id="map-chart_01_spatial_map" class="chart-map" role="img" aria-label="Interactive map showing property listings colored by price per square foot"></div>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading map...</div>
+        <div class="chart-tile__error" hidden>Failed to load map data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 02: Price Distribution -->
+    <article class="chart-tile" data-chart-id="chart_02_price_distribution" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Price Distribution Across Localities</h2>
+        <p class="chart-tile__caption">Box plot of prices for top 20 localities by listing volume.</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_02_price_distribution" class="chart-canvas" role="img" aria-label="Box plot showing price distribution across top localities"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 03: Price vs Area -->
+    <article class="chart-tile" data-chart-id="chart_03_price_vs_area" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Price vs. Area Analysis</h2>
+        <p class="chart-tile__caption">Scatter plot with linear trend line. Hover for details.</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_03_price_vs_area" class="chart-canvas" role="img" aria-label="Scatter plot of price versus built-up area with trend line"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 04: BHK Distribution -->
+    <article class="chart-tile" data-chart-id="chart_04_bhk_distribution" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">BHK Distribution</h2>
+        <p class="chart-tile__caption">Donut chart showing bedroom count distribution.</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_04_bhk_distribution" class="chart-canvas" role="img" aria-label="Donut chart of BHK distribution"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 05: Word Cloud -->
+    <article class="chart-tile" data-chart-id="chart_05_word_cloud" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Top Feature Word Cloud</h2>
+        <p class="chart-tile__caption">Most frequent terms from descriptions, amenities, and features.</p>
+      </header>
+      <div class="chart-tile__body">
+        <div id="chart_05_word_cloud" class="chart-wordcloud" role="img" aria-label="Word cloud of top property features"></div>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading word cloud...</div>
+        <div class="chart-tile__error" hidden>Failed to load word cloud data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 06: Correlation Heatmap -->
+    <article class="chart-tile" data-chart-id="chart_06_correlation_heatmap" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Feature Correlation Heatmap</h2>
+        <p class="chart-tile__caption">Pearson correlations between engineered numeric features.</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_06_correlation_heatmap" class="chart-canvas" role="img" aria-label="Correlation heatmap of numeric features"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 07: City Price Comparison -->
+    <article class="chart-tile" data-chart-id="chart_07_city_price_comparison" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">City-wise Price Comparison</h2>
+        <p class="chart-tile__caption">Box plot comparing price distributions across 4 cities.</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_07_city_price_comparison" class="chart-canvas" role="img" aria-label="Box plot comparing price distributions across Gurgaon, Hyderabad, Kolkata, Mumbai"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 08: Price per Sqft by Locality -->
+    <article class="chart-tile" data-chart-id="chart_08_price_sqft_locality_heatmap" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Price per Sqft by Locality</h2>
+        <p class="chart-tile__caption">Top 30 localities by median price per sqft (horizontal bar).</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_08_price_sqft_locality_heatmap" class="chart-canvas" role="img" aria-label="Horizontal bar chart of median price per sqft by locality"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 09: Furnish vs Price -->
+    <article class="chart-tile" data-chart-id="chart_09_furnish_vs_price" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Furnishing Status vs. Price</h2>
+        <p class="chart-tile__caption">Box plot comparing prices across furnished, semi-furnished, and unfurnished.</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_09_furnish_vs_price" class="chart-canvas" role="img" aria-label="Box plot of price by furnishing type"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 10: Age vs Price Trend -->
+    <article class="chart-tile" data-chart-id="chart_10_age_price_trend" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Property Age vs. Price Trend</h2>
+        <p class="chart-tile__caption">Median price across property age buckets.</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_10_age_price_trend" class="chart-canvas" role="img" aria-label="Line chart of median price by property age category"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 11: Amenity Count vs Price -->
+    <article class="chart-tile" data-chart-id="chart_11_amenity_count_vs_price" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Amenity Count vs. Price</h2>
+        <p class="chart-tile__caption">Scatter plot with regression trend — more amenities, higher price?</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_11_amenity_count_vs_price" class="chart-canvas" role="img" aria-label="Scatter plot of amenity count versus price with trend line"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 12: Floor Price Premium -->
+    <article class="chart-tile" data-chart-id="chart_12_floor_price_premium" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Floor Category vs. Price Premium</h2>
+        <p class="chart-tile__caption">Median price by floor category (Low/Mid/High floor).</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_12_floor_price_premium" class="chart-canvas" role="img" aria-label="Line chart of median price by floor category"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+
+    <!-- Chart 13: Top Builders by Price -->
+    <article class="chart-tile" data-chart-id="chart_13_top_builders_price" role="listitem">
+      <header class="chart-tile__header">
+        <h2 class="chart-tile__title">Top Builders by Median Price</h2>
+        <p class="chart-tile__caption">Top 15 builders/societies with at least 3 listings, ranked by median price.</p>
+      </header>
+      <div class="chart-tile__body">
+        <canvas id="chart_13_top_builders_price" class="chart-canvas" role="img" aria-label="Horizontal bar chart of top builders by median price"></canvas>
+        <div class="chart-tile__loading" aria-hidden="true"><span class="spinner"></span> Loading chart...</div>
+        <div class="chart-tile__error" hidden>Failed to load chart data.</div>
+      </div>
+    </article>
+  </div>
+</section>
+{% endblock %}

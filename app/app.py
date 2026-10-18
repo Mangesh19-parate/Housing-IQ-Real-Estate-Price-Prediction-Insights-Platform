@@ -356,10 +356,17 @@ def create_app() -> Flask:
             cities=list(KNOWN_CITIES),
         )
 
-    # ---- module page stubs (per CLAUDE.md route table) ----
-    # Each just renders a placeholder so `url_for()` builds the link
-    # in the shared nav. The real pages are filled in by follow-on
-    # specs (Day 39+ in the Implementation Plan).
+    # ---- Analytics page ----
+    @app.route("/analytics", endpoint="analytics")
+    def analytics() -> str:
+        """Render the Analytics Dashboard with 13 chart tiles."""
+        return render_template(
+            "analytics.html",
+            cities=list(KNOWN_CITIES),
+            fastapi_base_url=FASTAPI_BASE_URL,
+        )
+
+    # ---- Remaining module page stubs ----
     def _stub(module: str):
         def handler() -> str:
             return render_template("base.html"), 200 if False else (
@@ -370,7 +377,6 @@ def create_app() -> Flask:
         return handler
 
     for _endpoint, _label in [
-        ("analytics", "Analytics"),
         ("recommend", "Recommender"),
         ("insights", "Insights"),
         ("map_explorer", "Map"),
